@@ -1,0 +1,11 @@
+spriteTypes = { ##### THIS FILE DEFINES THE PICTURE FOR EACH SUPER EVENT
+	spriteType = {
+		name = "GFX_superevent_custom_latin_wars"
+		textureFile = "gfx//superevent_pictures//latin_wars_custom.tga"
+	}
+
+	spriteType = {
+		name = "GFX_superevent_custom_obama_balkan"
+		textureFile = "gfx//superevent_pictures//obama_balkan.tga"
+	}
+}

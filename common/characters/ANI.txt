@@ -1,0 +1,15 @@
+characters={
+	anime_council = {
+		name = "Anime Council"
+		portraits={
+			civilian={
+				large = "gfx/leaders/ANI/anime_council.dds"
+			}
+		}
+		country_leader={
+			ideology = moderatism
+			expire="1965.1.1.1"
+			id=-1
+		}
+	}
+}

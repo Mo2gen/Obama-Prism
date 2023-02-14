@@ -1,0 +1,271 @@
+obama_war_coring = {
+	core_lower_austria = {
+		fire_only_once = yes
+		available = {
+			owns_state = 4
+			has_equipment = {
+				infantry_equipment > 999
+			}
+		}
+		visible = {
+			owns_state = 4
+			has_completed_focus = OBA_attack_austria
+		}
+
+		cost = 25
+	
+
+		complete_effect = {
+			add_state_core = 4
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -1000
+				producer = OBA
+			}
+		}
+
+		ai_will_do = {	
+			factor = 200
+		}
+	}
+
+	core_upper_austria = {
+		fire_only_once = yes
+		available = {
+			owns_state = 152
+			has_equipment = {
+				infantry_equipment > 999
+			}
+		}
+		visible = {
+			owns_state = 152
+			has_completed_focus = OBA_attack_austria
+		}
+
+		cost = 25
+	
+
+		complete_effect = {
+			add_state_core = 152
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -1000
+				producer = OBA
+			}
+		}
+
+		ai_will_do = {	
+			factor = 200
+		}
+	}
+
+	core_tyrol = {
+		fire_only_once = yes
+		available = {
+			owns_state = 153
+			has_equipment = {
+				infantry_equipment > 999
+			}
+		}
+		visible = {
+			owns_state = 153
+			has_completed_focus = OBA_attack_austria
+		}
+
+		cost = 25
+	
+
+		complete_effect = {
+			add_state_core = 153
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -1000
+				producer = OBA
+			}
+		}
+
+		ai_will_do = {	
+			factor = 200
+		}
+	}
+
+	core_transdanubia = {
+		fire_only_once = yes
+		available = {
+			owns_state = 155
+			has_equipment = {
+				infantry_equipment > 999
+			}
+		}
+		visible = {
+			owns_state = 155
+			has_completed_focus = OBA_attack_hungary
+		}
+
+		cost = 25
+	
+
+		complete_effect = {
+			add_state_core = 155
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -1000
+				producer = OBA
+			}
+		}
+
+		ai_will_do = {	
+			factor = 200
+		}
+	}
+
+	core_alfold = {
+		fire_only_once = yes
+		available = {
+			owns_state = 154
+			has_equipment = {
+				infantry_equipment > 999
+			}
+		}
+		visible = {
+			owns_state = 154
+			has_completed_focus = OBA_attack_hungary
+		}
+
+		cost = 25
+	
+
+		complete_effect = {
+			add_state_core = 154
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -1000
+				producer = OBA
+			}
+		}
+
+		ai_will_do = {	
+			factor = 200
+		}
+	}
+
+	core_nhungary = {
+		fire_only_once = yes
+		available = {
+			owns_state = 43
+			has_equipment = {
+				infantry_equipment > 999
+			}
+		}
+		visible = {
+			owns_state = 43
+			has_completed_focus = OBA_attack_hungary
+		}
+
+		cost = 25
+	
+
+		complete_effect = {
+			add_state_core = 43
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -1000
+				producer = OBA
+			}
+		}
+
+		ai_will_do = {	
+			factor = 200
+		}
+	}
+
+	core_ntrans = {
+		fire_only_once = yes
+		available = {
+			owns_state = 76
+			has_equipment = {
+				infantry_equipment > 999
+			}
+		}
+		visible = {
+			owns_state = 76
+			has_completed_focus = OBA_attack_rom
+		}
+
+		cost = 25
+	
+
+		complete_effect = {
+			add_state_core = 76
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -1000
+				producer = OBA
+			}
+		}
+
+		ai_will_do = {	
+			factor = 200
+		}
+	}
+
+	core_trans = {
+		fire_only_once = yes
+		available = {
+			owns_state = 84
+			has_equipment = {
+				infantry_equipment > 999
+			}
+		}
+		visible = {
+			owns_state = 84
+			has_completed_focus = OBA_attack_rom
+		}
+
+		cost = 25
+	
+
+		complete_effect = {
+			add_state_core = 84
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -1000
+				producer = OBA
+			}
+		}
+
+		ai_will_do = {	
+			factor = 200
+		}
+	}
+
+	core_crisana = {
+		fire_only_once = yes
+		available = {
+			owns_state = 83
+			has_equipment = {
+				infantry_equipment > 999
+			}
+		}
+		visible = {
+			owns_state = 83
+			has_completed_focus = OBA_attack_rom
+		}
+
+		cost = 25
+	
+
+		complete_effect = {
+			add_state_core = 83
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -1000
+				producer = OBA
+			}
+		}
+
+		ai_will_do = {	
+			factor = 200
+		}
+	}
+}

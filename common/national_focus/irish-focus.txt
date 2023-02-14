@@ -1,0 +1,120 @@
+focus_tree = {
+    id = irish-focus
+    continuous_focus_position = { x = 0 y = 2000 }
+    country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = IRE
+		}
+	}
+
+    focus = {
+        id = expand_guinness
+        x = 0
+        y = -1
+        cost = 10
+        completion_reward = {
+            random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+            random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+        }
+    }
+
+    focus = {
+        id = create_guinness_trading_company
+        x = 0
+        y = 0
+        cost = 10
+        prerequisite = { focus = expand_guinness }
+        completion_reward = {
+            add_ideas = trading_company
+        }
+    }
+
+    focus = {
+        id = plant_potatoes
+        x = 0
+        y = 1
+        cost = 10
+        prerequisite = { focus = create_guinness_trading_company }
+        available = {
+            has_completed_focus = give_company_power
+        }
+        completion_reward = {
+            swap_ideas = {
+                add_idea = potaoe_plantations_2
+	            remove_idea = potaoe_plantations_1
+            }
+        }
+    }
+
+    focus = {
+        id = political_situation
+        x = 7
+        y = -1
+        cost = 10
+        completion_reward = {
+            add_political_power = 150
+        }
+    }
+
+    focus = {
+        id = invite_discord_mods
+        x = 8
+        y = 0
+        cost = 10
+        prerequisite = { focus = political_situation }
+        mutually_exclusive = { focus = stay_unbased }
+        completion_reward = {
+            add_ideas = discord_mods
+        }
+    }
+
+    focus = {
+        id = stay_unbased
+        x = 5
+        y = 0
+        cost = 10
+        prerequisite = { focus = political_situation }
+        mutually_exclusive = { focus = invite_discord_mods }
+        completion_reward = {
+            load_focus_tree = generic_focus
+            hidden_effect = {
+                set_party_name = { 
+                    ideology = democratic
+                    long_name = "Gay"
+                    name = "Gay"
+                }
+            }
+        }
+    }
+
+    focus = {
+        id = give_company_power
+        x = 7
+        y = 1
+        cost = 10
+        prerequisite = { focus = invite_discord_mods }
+        completion_reward = {
+            set_party_name = { 
+                    ideology = democratic
+                    long_name = "Irish Potato Party"
+                    name = "PP"
+                }
+        }
+    }
+}

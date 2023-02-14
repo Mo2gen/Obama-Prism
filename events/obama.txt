@@ -1,0 +1,375 @@
+add_namespace = obama 
+
+country_event = {
+	id = obama.1
+    title = "The Coup"
+    desc = "It was a normal night on the first of january 1937. You were about to leave the office when you heard loud screaming from outside. You opened it to find an angry mob screaming at you about income inequality and other political issues."
+    
+    fire_only_once = yes
+    mean_time_to_happen = {
+		days = 2
+	}
+
+    trigger = { 
+        date > 1936.1.21
+        tag = OBA
+    }
+
+    option = {
+        name = "Resign"
+        set_politics = {
+	        ruling_party = communism
+            elections_allowed = no
+        }
+        add_popularity = { ideology = communism popularity = 0.5 }
+        set_country_flag = obama_coup_success
+        load_focus_tree = obama-communist-focus
+        news_event = { id = obama.2 days = 1}
+    }
+    option = {
+        name = "Convince them"
+        add_political_power = -300
+        set_country_flag = coup_failed
+    }
+}
+
+news_event = {
+    id = obama.2
+    title = "The Coup"
+    desc = "The goverment in Obama has fallen to a leftist insurrection"
+    picture = "GFX_obama_coup"
+    is_triggered_only = yes
+    fire_for_sender = yes
+    major = yes
+    option = {
+		name = "That country still exists?"
+        trigger = {
+            Not = {
+                tag = OBA
+                has_government = communism
+            }
+        }
+    }
+    option = {
+        name = "Long live the Revolution!"
+        trigger = {
+            tag = OBA
+            has_government = communism
+        }
+    }
+}
+
+country_event = {
+    id = obama.69
+    title = "Go take A Shower"
+    desc = "You've been playing way to much hoi4, just take a shower"
+    is_triggered_only = yes
+
+    option = {
+        name = "Fine I'll take a shower :("
+        add_stability = 0.01
+        country_event = { id = obama.70 days = 1}
+    }
+    option = {
+        name = "No I'll keep playing"
+        add_political_power = 10
+        country_event = { id = obama.70 days = 1}
+    }
+}
+
+country_event = {
+    id = obama.70
+    title = "Thanks for staying"
+    desc = "Thanks for playing the Mod, please report any bugs in the comment section"
+    is_triggered_only = yes
+
+    option = {
+        name = "Now let me play already!"
+    }
+}
+
+country_event = {
+    id = obama.71
+    title = "The National Defence front"
+    desc = "Some people in the army staff recommend making a Defenese Organisation so we can win this war, should we do this?"
+    is_triggered_only = yes
+
+    trigger = {
+        tag = BOS
+        AND = {
+            has_offensive_war = yes
+            has_war_with = OBA
+        }
+    }
+
+    option = {
+        name = "Form it"
+        add_ideas = BOS_front_nacionalne_odbrane
+    }
+}
+
+country_event = {
+    id = obama.72
+    title = "Bosnia breaks free!"
+    desc = "Kinda cringe bro"
+    major = yes
+    fire_only_once = yes
+    is_triggered_only = yes
+    
+    option = {
+        name = "We cant allow that to happen!"
+        declare_war_on = BOS
+    }
+    option = {
+        name = "Maybe its time to let go..."
+        add_political_power = -150
+        add_stability = -5
+    }
+}
+
+country_event = {
+    id = obama.73
+    title = "The Croatian Uprising"
+    desc = "The Croats have risen up! We need to deal with them, before they can establish themselves properly!"
+    major = no
+    fire_only_once = yes
+    is_triggered_only = no
+
+    trigger = {
+        tag = OBA
+        country_exists = OBA
+        OBA = {
+            owns_state = 109
+        }
+        OR = {
+            date > 1937.7.25
+            BOS = {
+                has_completed_focus = BOS_declare_jihad
+            }
+            BOS = {
+                has_war_with = OBA
+            }
+        }
+    }
+
+    mean_time_to_happen = {
+		days = 2
+	}
+
+    option = {
+        name = "Mobilise the Garrisons!"
+        custom_effect_tooltip = "R The Croats will rise up against us W"
+        163 = {
+            create_unit = {
+                division = "division_template = \"National Guard\"	start_experience_factor = 0.01	start_equipment_factor = 1"
+                owner = OBA
+                allow_spawning_on_enemy_provs = no
+                count = 1
+            }
+        }
+        hidden_effect = {
+            OBA ={
+                delete_unit = { 
+                    state = 109         
+                    disband = yes
+                }
+            }
+            CRO = {
+                set_country_flag = croatian_uprising
+                set_state_controller = 109
+                set_state_owner = 109
+                load_focus_tree = croatia-focus-mod
+                declare_war_on = {
+                    target = OBA
+                    type = annex_everything
+                }
+                add_civil_war_target = OBA
+                division_template = {
+                    name = "Pjesadijska Divizija"
+                    division_names_group = YUG_INF_01
+                    regiments = {
+                        infantry = { x = 0 y = 0 }
+                        infantry = { x = 0 y = 1 }
+                        infantry = { x = 0 y = 2 }
+                        infantry = { x = 1 y = 0 }
+                        infantry = { x = 1 y = 1 }
+                        infantry = { x = 1 y = 2 }
+                        infantry = { x = 2 y = 0 }
+                        infantry = { x = 2 y = 1 }
+                        infantry = { x = 2 y = 2 }
+                    }
+                }
+                109 = {
+                    create_unit = {
+                        division = "division_template = \"Pjesadijska Divizija\"	start_experience_factor = 0.3	start_equipment_factor = 0.5"
+                        owner = CRO
+                        allow_spawning_on_enemy_provs = yes
+                        count = 1
+                    }
+                }
+            }
+        }
+    }
+
+    option = {
+        name = "Maybe they have a right to seceed..."
+        custom_effect_tooltip = "R We will fight against the government for our country W"
+        hidden_effect = {
+            OBA ={
+                delete_unit = { 
+                    state = 109         
+                    disband = yes
+                }
+            }
+            CRO = {
+                set_country_flag = croatian_uprising
+                set_state_controller = 109
+                set_state_owner = 109
+                load_focus_tree = croatia-focus-mod
+                declare_war_on = {
+                    target = OBA
+                    type = annex_everything
+                }
+                add_civil_war_target = OBA
+                division_template = {
+                    name = "Pjesadijska Divizija"
+                    division_names_group = YUG_INF_01
+                    regiments = {
+                        infantry = { x = 0 y = 0 }
+                        infantry = { x = 0 y = 1 }
+                        infantry = { x = 0 y = 2 }
+                        infantry = { x = 1 y = 0 }
+                        infantry = { x = 1 y = 1 }
+                        infantry = { x = 1 y = 2 }
+                        infantry = { x = 2 y = 0 }
+                        infantry = { x = 2 y = 1 }
+                        infantry = { x = 2 y = 2 }
+                    }
+                }
+                109 = {
+                    create_unit = {
+                        division = "division_template = \"Pjesadijska Divizija\"	start_experience_factor = 0.3	start_equipment_factor = 0.5"
+                        owner = CRO
+                        allow_spawning_on_enemy_provs = yes
+                        count = 3
+                    }
+                }
+                change_tag_from = OBA
+            }
+        }
+    }
+}
+
+country_event = {
+    id = obama.420
+    title = "The Turkish issue"
+    desc = "The Turkish have long been a thorn in our balkan expansion path. But now that we have the region under our control a new issue arrises. Should we incorporate the turkish into our new balkan state or just push them into the right direction?"
+    major = no
+    fire_only_once = yes
+    is_triggered_only = yes
+
+    option = {
+        name = "Of course we should include them!"
+        create_wargoal = { type = annex_everything target = TUR }
+    }
+    option = {
+        name = "A nudge in the right direction is enough"
+        create_wargoal = { type = puppet_wargoal_focus target = TUR } 
+    }
+}
+
+country_event = {
+    id = obama.1916
+    title = "Victory in Romania"
+    desc = ""
+    major = no
+    fire_only_once = yes
+    is_triggered_only = yes
+
+    trigger = {
+        tag = OBA
+            has_war_with = ROM
+        OR = {
+            AND = {
+                ROM = {
+                    has_capitulated = yes
+                }
+                controls_state = 46
+            }
+            AND = {
+                controls_state = 76
+                controls_state = 84
+                controls_state = 83
+                controls_state = 82
+            }
+        }
+    }
+
+    option = {
+        name = "It is time to end this"
+        set_state_owner = 76
+        set_state_owner = 84
+        set_state_owner = 83
+        set_state_owner = 82
+        white_peace = ROM
+        hidden_effect = {
+            set_state_controller = 76
+            set_state_controller = 84
+            set_state_controller = 83
+            set_state_controller = 82
+        }
+    }
+    option = {
+        name = "It is time to end this, but keep an eye on the Romanians"
+        add_political_power = -150
+        add_stability = -0.1
+        puppet = ROM
+        set_state_owner = 76
+        set_state_owner = 84
+        set_state_owner = 83
+        set_state_owner = 82
+        white_peace = ROM
+        hidden_effect = {
+            set_state_controller = 76
+            set_state_controller = 84
+            set_state_controller = 83
+            set_state_controller = 82
+        }
+    }
+    option = {
+        name = "There shall be no peace!"
+        add_political_power = 150
+        add_stability = -0.05
+        add_war_support = 0.1
+    }
+}
+
+country_event = {
+	id = obama.81
+    title = "A strange visit"
+    desc = "After a nice drink with one of your visitors at a party event you get approached by a strange figure. He introduces himself as Theodore and asks to sit down with you for a talk about the future of your warlord state."
+    
+    fire_only_once = yes
+    mean_time_to_happen = {
+		days = 2
+	}
+
+    trigger = { 
+        date > 1936.6.12
+        tag = OBA
+        has_government = democratic
+    }
+
+    option = {
+        name = "Ignore him"
+        custom_effect_tooltip = "I have bigger things to focus on. Like Michelle"
+    }
+    option = {
+        name = "Sit down with him"
+        custom_effect_tooltip = "Maybe he has something interesting to say..."
+        hidden_effect = {
+            set_country_flag = oba_byzantium
+            mark_focus_tree_layout_dirty = yes
+        }
+    }
+}

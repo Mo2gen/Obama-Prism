@@ -1,0 +1,104 @@
+focus_tree = {
+    id = floppa-focus
+	continuous_focus_position = { x = 0 y = 2000 } 
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = FLO
+		}
+	}
+
+    focus = {
+        id = declare_floppa
+        x = 5
+        y = 0
+        cost = 10
+        completion_reward = {
+            add_political_power = 100
+        }
+    }
+
+    focus = {
+        id = sell_merch
+        x = 5
+        y = 1
+        cost = 10
+        prerequisite = { focus = declare_floppa }
+        completion_reward = {
+            add_ideas = FLO_merch
+        }
+    }
+
+    focus = {
+        id = peaceful_floppa
+        x = 3
+        y = 2
+        cost = 10
+        prerequisite = { focus = sell_merch }
+        mutually_exclusive = { focus = aggressive_floppa }
+        completion_reward = {
+
+        }
+    }
+
+    focus = {
+        id = democratic_floppa
+        x = 2
+        y = 3
+        cost = 10
+        prerequisite = { focus = peaceful_floppa }
+        mutually_exclusive = { focus = gamer_floppa }
+        completion_reward = {
+
+        }
+    }
+
+    focus = {
+        id = gamer_floppa
+        x = 4
+        y = 3
+        cost = 10
+        prerequisite = { focus = peaceful_floppa }
+        mutually_exclusive = { focus = democratic_floppa }
+        completion_reward = {
+
+        }
+    }
+
+    focus = {
+        id = aggressive_floppa
+        x = 7
+        y = 2
+        cost = 10
+        prerequisite = { focus = sell_merch }
+        mutually_exclusive = { focus = peaceful_floppa }
+        completion_reward = {
+            
+        }
+    }
+
+    focus = {
+        id = socialist_floppa
+        x = 6
+        y = 3
+        cost = 10
+        prerequisite = { focus = aggressive_floppa }
+        mutually_exclusive = { focus = based_floppa }
+        completion_reward = {
+
+        }
+    }
+
+    focus = {
+        id = based_floppa
+        x = 8
+        y = 3
+        cost = 10
+        prerequisite = { focus = aggressive_floppa }
+        mutually_exclusive = { focus = socialist_floppa }
+        completion_reward = {
+            
+        }
+    }
+}

@@ -1,0 +1,45 @@
+focus_tree = {
+	id = obama-communist-focus
+	continuous_focus_position = { x = 0 y = 2000 } 
+
+	focus = {
+		id = general_secretary
+		x = 7
+		y = 0
+	}
+
+	focus = {
+		id = assure_people
+		x = 7
+		y = 1
+		prerequisite = { focus = general_secretary }
+	}
+
+	focus = {
+		id = hail_bern
+		x = 5
+		y = 2
+		prerequisite = { focus = assure_people }
+	}
+
+	focus = {
+		id = seize_food
+		x = 9
+		y = 2
+		prerequisite = { focus = assure_people }
+	}
+	
+	focus = {
+		id = integrate_bosnia
+		x = 7
+		y = 3
+		prerequisite = { focus = hail_bern  focus = seize_food }
+	}
+	
+	focus = {
+		id = deciding_days
+		x = 7
+		y = 4
+		prerequisite = { focus = integrate_bosnia }
+	}
+}

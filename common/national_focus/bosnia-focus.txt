@@ -1,0 +1,736 @@
+focus_tree = {
+	id = bosnia-focus
+	continuous_focus_position = { x = 0 y = 2000 } 
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = BOS
+		}
+	}
+
+	focus = {
+		id = BOS_commemorate_dead
+		icon = GFX_goal_commemorate_dead
+		x = 7
+		y = 0
+		cost = 1
+		completion_reward = {
+			add_stability = 0.05
+			add_political_power = 50
+		}
+	}
+
+	focus = {
+		id = BOS_accept_refugees
+		icon = GFX_goal_expand_citizenship
+		x = 7
+		y = 1
+		cost = 10
+		prerequisite = { focus = BOS_commemorate_dead }
+		completion_reward = {
+			add_stability = -0.04
+			104 = {
+				add_manpower = 10000
+			}
+			105 = {
+				add_manpower = -3000
+			}
+			108 = {
+				add_manpower = -500
+			}
+			107 = {
+				add_manpower = -6500
+			}
+		}
+	}
+
+	focus = {
+		id = BOS_resist_influence
+		icon = GFX_goal_resist_influence
+		x = 4
+		y = 2
+		cost = 5
+		prerequisite = { focus = BOS_accept_refugees }
+		mutually_exclusive = { focus = BOS_accept_influence }
+		completion_reward = {
+			add_ideas = BOS_resisted_influence
+		}
+	}
+
+	focus = {
+		id = BOS_accept_influence
+		icon = GFX_goal_accept_obama
+		x = 10
+		y = 2
+		ai_will_do = {
+			factor = 10
+		}
+		cost = 10
+		prerequisite = { focus = BOS_accept_refugees }
+		mutually_exclusive = { focus = BOS_resist_influence }
+		completion_reward = {
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 1.5
+				uses = 1
+				category = electronics
+			}
+			add_ideas = BOS_obama_influence
+			hidden_effect = {
+				OBA = {
+					complete_national_focus = OBA_bos_invest
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = BOS_increase_autonomy
+		icon = GFX_goal_secure_bosnian_autonomy
+		x = 4
+		y = 3
+		cost = 10
+		prerequisite = { focus = BOS_resist_influence}
+		completion_reward = {
+			add_political_power = 50
+			add_autonomy_ratio = {
+				value = 0.25
+			}
+		}
+	}
+
+	focus = {
+		id = BOS_national_industry
+		icon = GFX_goal_bosnian_industry
+		x = 4
+		y = 4
+		cost = 10
+		prerequisite = { focus = BOS_increase_autonomy}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			add_autonomy_ratio = {
+				value = 0.25
+			}
+			add_political_power = -10
+		}
+	}
+
+	focus = {
+		id = BOS_ready_army
+		icon = GFX_goal_bosnian_milita
+		x = 3
+		y = 5
+		cost = 10
+		prerequisite = { focus = BOS_national_industry }
+		completion_reward = {
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "division_template = \"Bosnian Guard\"	start_experience_factor = 0.3	start_equipment_factor = 1"
+					owner = BOS
+					allow_spawning_on_enemy_provs = no
+					count = 5
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = BOS_aquire_guns
+		icon = GFX_goal_yugoslav_guns
+		x = 5
+		y = 5
+		cost = 10
+		prerequisite = { focus = BOS_national_industry }
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = 3500
+				producer = YUG
+			}
+		}
+	}
+
+	focus = {
+		id = BOS_expand_army
+		icon = GFX_goal_conscription
+		x = 3
+		y = 6
+		cost = 10
+		prerequisite = { focus = BOS_ready_army}
+		prerequisite = { focus = BOS_aquire_guns}
+		mutually_exclusive = { focus = BOS_import_small_arms}
+		completion_reward = {
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "division_template = \"Bosnian Guard\"	start_experience_factor = 0.25	start_equipment_factor = 1"
+					owner = BOS
+					allow_spawning_on_enemy_provs = no
+					count = 4
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = BOS_import_small_arms
+		x = 5
+		y = 6
+		cost = 10
+		prerequisite = { focus = BOS_ready_army}
+		prerequisite = { focus = BOS_aquire_guns}
+		mutually_exclusive = { focus = BOS_expand_army}
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = 2500
+				producer = YUG
+			}
+			add_equipment_to_stockpile = {
+				type = support_equipment_1
+				amount = 150
+				producer = YUG
+			}
+		}
+	}
+
+	focus = {
+		id = BOS_invite_yugos
+		icon = GFX_goal_invite_balkan_fighters
+		x = 4
+		y = 7
+		cost = 10
+		prerequisite = { focus = BOS_import_small_arms focus = BOS_expand_army}
+		completion_reward = {
+			add_manpower = 3000
+			add_ideas = service_by_requirement
+		}
+	}
+
+	focus = {
+		id = BOS_break_free
+		icon = GFX_goal_break_free
+		x = 4
+		y = 8
+		cost = 5
+		available = {
+			OR = {
+				is_puppet = yes
+				has_war = yes
+			}
+		}
+		bypass = {
+			is_puppet = no
+		}
+		prerequisite = { focus = BOS_invite_yugos}
+		completion_reward = {
+			OBA = {
+				end_puppet = BOS
+				country_event = obama.72
+			}
+			hidden_effect = {
+				leave_faction = yes
+			}
+		}
+	}
+
+	focus = {
+		id = BOS_declare_jihad
+		icon = GFX_goal_jihad
+		x = 4
+		y = 9
+		cost = 5
+		available = {
+			is_puppet = no
+			OBA = {
+				is_puppet = no
+			}
+		}
+		bypass = {
+			OR = {
+				NOT = {
+					country_exists = OBA
+				}
+				has_war_with = OBA
+			}
+		}
+		prerequisite = { focus = BOS_break_free}
+		completion_reward = {
+			declare_war_on = { type = annex_everything    target = OBA }
+			add_ideas = BOS_obama_jihad
+		}
+	}
+
+	focus = {
+		id = BOS_ask_for_autonomy
+		icon = GFX_goal_demand_autonomy
+		x = 10
+		y = 3
+		cost = 10
+		prerequisite = { focus = BOS_accept_influence}
+		completion_reward = {
+			add_ideas = BOS_increased_autonomy
+		}
+	}
+
+	focus = {
+		id = BOS_shared_training
+		icon = GFX_goal_drone_exercises
+		x = 10
+		y = 4
+		cost = 10
+		prerequisite = { focus = BOS_ask_for_autonomy }
+		completion_reward = {
+			division_template = {
+   				name = "Obamese Bosnian Corps"
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 1 y = 1 }
+					infantry = { x = 0 y = 2 }
+					infantry = { x = 1 y = 2 }
+					artillery_brigade = { x = 2 y = 0}
+					artillery_brigade = { x = 2 y = 1}
+				} 
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "division_template = \"Obamese Bosnian Corps\"	start_experience_factor = 0.5	start_equipment_factor = 1"
+					owner = BOS
+					allow_spawning_on_enemy_provs = no
+					count = 5
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = BOS_obamese_investors
+		icon = GFX_goal_obamese_investors_bosnia
+		x = 10
+		y = 5
+		cost = 10
+		prerequisite = { focus = BOS_shared_training }
+		completion_reward = {
+			add_ideas = BOS_obamese_investors
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = BOS_expand_burek
+		icon = GFX_goal_burek
+		x = 16
+		y = 0
+		cost = 10
+		completion_reward = {
+			add_ideas = BOS_burek_economics
+
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = BOS_build_infrastructure
+		icon = GFX_goal_generic_construct_infrastructure
+		x = 16
+		y = 1
+		cost = 10
+		prerequisite = { focus = BOS_expand_burek }
+		completion_reward = {
+			104 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			804 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = BOS_build_metro
+		icon = GFX_goal_metro
+		x = 18
+		y = 2
+		cost = 3
+		prerequisite = { focus = BOS_build_infrastructure }
+		completion_reward = {
+			104 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = BOS_mixed_industry
+		icon = GFX_goal_generic_construction
+		x = 16
+		y = 2
+		cost = 10
+		prerequisite = { focus = BOS_build_infrastructure }
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = BOS_focus_military
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 15
+		y = 3
+		cost = 10
+		prerequisite = { focus = BOS_mixed_industry }
+		mutually_exclusive = { focus = BOS_focus_civillian }
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = BOS_focus_civillian
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 17
+		y = 3
+		cost = 10
+		prerequisite = { focus = BOS_mixed_industry }
+		mutually_exclusive = { focus = BOS_focus_military }
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = BOS_focus_military2
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 15
+		y = 4
+		cost = 10
+		prerequisite = { focus = BOS_focus_military focus = BOS_focus_civillian }
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = BOS_focus_civillian2
+		icon = GFX_goal_burek_king
+		x = 17
+		y = 4
+		cost = 10
+		prerequisite = { focus = BOS_focus_military focus = BOS_focus_civillian }
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = BOS_finish_buildup
+		icon = GFX_goal_generic_construct_civilian
+		x = 16
+		y = 5
+		cost = 10
+		prerequisite = { focus = BOS_focus_military2}
+		prerequisite = { focus = BOS_focus_civillian2}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = BOS_restore_slavic_order
+		icon = GFX_goal_slavic_order
+		x = 4
+		y = 10
+		cost = 10
+		available = {
+			NOT = {
+				is_puppet_of = OBA
+				country_exists = OBA
+			}
+			owns_state = 804
+			owns_state = 104
+		}
+		available_if_capitulated = no
+		prerequisite = { focus = BOS_declare_jihad }
+		completion_reward = {
+			add_stability = 0.1
+			add_political_power = 150
+			if = {
+			limit = {
+				NOT = {
+					country_exists = OBA
+				}
+			}
+			every_state = { 
+				limit = {is_core_of = OBA}
+				remove_core_of = OBA
+			}
+		}
+		}
+	}
+
+	focus = {
+		id = BOS_restore_slavic_kingdoms
+		icon = GFX_goal_invite_balkan_fighters
+		x = 3
+		y = 11
+		cost = 10
+		available = {
+			is_puppet = no
+		}
+		prerequisite = { focus = BOS_restore_slavic_order }
+		mutually_exclusive = { focus = BOS_proclaim_greater_bosnia }
+		available_if_capitulated = no
+		completion_reward = {
+			set_variable = {
+			var = slavic_kingdom_reward
+			value = 0
+			}
+			if = {
+				limit = {
+					OR = {
+						owns_state = 103
+						owns_state = 163
+						owns_state = 109
+					}
+				}
+				CRO = {
+					add_state_core = 103
+					add_state_core = 163
+					add_state_core = 109
+				}
+				release = CRO
+				set_autonomy = {
+					target = CRO
+					autonomous_state = autonomy_puppet
+				}
+				add_to_variable = { slavic_kingdom_reward = 50 }
+			}
+			if = {
+				limit = {
+					OR = {
+						owns_state = 102
+						owns_state = 736
+					}
+				}
+				release = SLV
+				set_autonomy = {
+					target = SLV
+					autonomous_state = autonomy_puppet
+				}
+				add_to_variable = { slavic_kingdom_reward = 50 }
+			}
+			if = {
+				limit = {
+					owns_state = 105
+				}
+				release = MNT
+				set_autonomy = {
+					target = MNT
+					autonomous_state = autonomy_puppet
+				}
+				add_to_variable = { slavic_kingdom_reward = 50 }
+			}
+			if = {
+				limit = {
+					OR = {
+						owns_state = 107
+						owns_state = 108
+						owns_state = 802
+						owns_state = 803
+					}
+				}
+				release = SER
+				set_autonomy = {
+					target = SER
+					autonomous_state = autonomy_puppet
+				}
+				add_to_variable = { slavic_kingdom_reward = 50 }
+			}
+			if = {
+				limit = {
+					owns_state = 106
+				}
+				release = MAC
+				set_autonomy = {
+					target = MAC
+					autonomous_state = autonomy_puppet
+				}
+				add_to_variable = { slavic_kingdom_reward = 50 }
+			}
+			add_political_power = var:slavic_kingdom_reward
+			create_faction = "United Slavic Alliance"
+		}
+	}
+
+	focus = {
+		id = BOS_proclaim_greater_bosnia
+		x = 5
+		y = 11
+		cost = 10
+		prerequisite = { focus = BOS_restore_slavic_order }
+		mutually_exclusive = { focus = BOS_restore_slavic_kingdoms }
+		completion_reward = {
+			every_state = { 
+				limit = { is_controlled_by = BOS }
+				ROOT = { add_state_core = PREV } 
+			}
+		}
+	}
+
+	focus = {
+		id = BOS_bosnian_age
+		icon = GFX_goal_bosnian_age
+		x = 4
+		y = 12
+		prerequisite = { focus = BOS_restore_slavic_kingdoms focus = BOS_proclaim_greater_bosnia }
+		
+		completion_reward = {
+			custom_effect_tooltip = "RBosnia has achieved independence and even more! We have truly entered a new Bosnian age! Živjela Bosna! Živjeli južni slaveni!W"
+			hidden_effect = {
+				if = {
+					limit = {
+						has_government = democratic
+					}
+					set_cosmetic_tag = GREATER_BOSNIA_democratic
+				}
+				if = {
+					limit = {
+						has_government = fascism
+					}
+					set_cosmetic_tag = GREATER_BOSNIA_fascism
+				}
+				if = {
+					limit = {
+						has_government = communism
+					}
+					set_cosmetic_tag = GREATER_BOSNIA_communism
+				}
+				if = {
+					limit = {
+						has_government = neutrality
+					}
+					set_cosmetic_tag = GREATER_BOSNIA_neutrality
+				}
+				load_focus_tree = post_war_bosnia-focus
+				set_country_flag = big_event_custom_latin_wars
+			}
+		}	
+	}
+}

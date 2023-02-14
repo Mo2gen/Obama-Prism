@@ -1,0 +1,97 @@
+characters={
+	OBA_The_Bern = {
+		name = "The Bern"
+		portraits={
+			civilian={
+				large="gfx/leaders/OBA/the_bern.dds"
+			}
+		}
+		country_leader={
+			ideology=anti_revisionism
+			expire="1965.1.1.1"
+			traits = {union_man permanent_revolutionary revolutionary_general}
+			id=-1
+		}
+	}
+	OBA_Donald_Trumpet={
+		name = "Donald Trumpet"
+		portraits={
+			civilian={
+				large="gfx/leaders/OBA/donald_trumpet.dds"
+			}
+		}
+		country_leader={
+			ideology=fascism_ideology
+			expire="1965.1.1.1"
+			traits = {emperor_showa dislikes_germany fascist_sympathies}
+			id=-1
+		}
+	}
+	OBA_Obama={
+		name = "Obama"
+		portraits={
+			civilian={
+				large="gfx/leaders/OBA/Obama.dds"
+			}
+		}
+		country_leader={
+			expire = "1965.1.1"
+			ideology = socialism
+			traits = {  dictator warmonger }
+			id =-1
+		}
+	}
+	OBA_Anarchy={
+		name = "No One / Anarchy"
+		portraits={
+			civilian={
+				large="gfx/leaders/OBA/Anarchy.dds"
+			}
+		}
+		country_leader={
+			expire = "1965.1.1"
+			ideology = anarchism
+			id=-1
+		}
+	}
+
+	#Military shit
+	OBA_Obama_military={
+		name = "Obama"
+		portraits={
+			army={
+				large="gfx/leaders/OBA/Obama.dds"
+				small="GFX_idea_gerd_von_rundstedt"
+				#Placeholder so i remember how new loc works
+			}
+		}
+		corps_commander={
+			traits = { brilliant_strategist war_hero media_personality bearer_of_artillery aggressive_assaulter inspirational_leader jungle_rat naval_invader superior_tactician air_controller }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 15
+			logistics_skill = 15
+			id = 19160330
+		}
+	}
+
+	OBA_YO_BIDEN={
+		name = "YOOOOOOOOOOOOOOOOO BIDEN"
+		portraits={
+			army={
+				large="gfx/leaders/OBA/biden.dds"
+				small="GFX_idea_gerd_von_rundstedt"
+				#Placeholder so i remember how new loc works
+			}
+		}
+		corps_commander={
+			skill = 3
+			attack_skill = 2
+			defense_skill = 10
+			planning_skill = 0
+			logistics_skill = 5
+			id = 19160331
+		}
+	}
+}

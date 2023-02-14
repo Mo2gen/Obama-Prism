@@ -1,0 +1,1717 @@
+focus_tree = {
+	id = obama-focus
+	continuous_focus_position = { x = 0 y = 2000 } 
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = OBA
+		}
+	}
+
+	#Remembering the Drone War
+	focus = {
+		id = OBA_remembering_the_drone_war
+		icon = GFX_OBA_remembering_the_drone_war-445
+		x = 6
+		y = 0
+		cost = 1
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		completion_reward = {
+			add_political_power = 150
+			army_experience = 15
+		}
+	}
+
+	#Consolidate our Land
+	focus = {
+		id = OBA_consolidate_our_land
+		icon = GFX_goal_generic_propaganda
+		x = 5
+		y = 1
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = OBA_remembering_the_drone_war  }
+		completion_reward = {
+			add_stability = 0.05
+		}
+	}
+
+	#Election Time
+	focus = {
+		id = OBA_election_time
+		icon = GFX_goal_support_democracy
+		x = 7
+		y = 1
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = OBA_remembering_the_drone_war  }
+		completion_reward = {
+			add_popularity = { ideology = democratic popularity = -0.1 }
+		}
+	}
+
+	#Obama 2 electic boogalo
+	focus = {
+		id = OBA_obama_2_electic_boogalo
+		icon = GFX_goal_obama2
+		x = 5
+		y = 2
+		cost = 1
+		ai_will_do = {
+			factor = 10
+		}
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = OBA_consolidate_our_land  } 
+		prerequisite = { focus = OBA_election_time  }
+		mutually_exclusive = { focus = OBA_stop_the_count  }
+		completion_reward = {
+			add_stability = 0.1
+			add_popularity = { ideology = democratic popularity = 0.05 }
+		}
+	}
+
+	#Silence the Opposition
+	focus = {
+		id = OBA_silence_the_opposition
+		icon = GFX_goal_silence_opposition
+		x = 6
+		y = 3
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_STABILITY
+		}
+		prerequisite = { focus = OBA_obama_2_electic_boogalo  focus = OBA_stop_the_count  }
+		completion_reward = {
+			add_ideas = OBA_silenced_the_opposition
+			add_political_power = -50
+		}
+	}
+
+	#Drone Strike "Military" Objectives
+	focus = {
+		id = OBA_drone_strike_military_objectives
+		icon = GFX_goal_generic_occupy_start_war
+		x = 4
+		y = 3
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		prerequisite = { focus = OBA_obama_2_electic_boogalo  }
+	}
+
+	#Commision more Drones
+	focus = {
+		id = OBA_commision_more_drones
+		icon = GFX_goal_commision_more_drones
+		x = 4
+		y = 5
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		prerequisite = { focus = OBA_visit_iraq  }
+	}
+
+	#Introduce Healthcare reforms
+	focus = {
+		id = OBA_introduce_healthcare_reforms
+		icon = GFX_goal_healthcare_reform
+		x = 2
+		y = 3
+		cost = 11
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = OBA_obama_2_electic_boogalo  }
+		completion_reward = {
+			add_ideas = OBA_Obamacare
+		}
+	}
+
+	#Expand the Social Net
+	focus = {
+		id = OBA_expand_the_social_net
+		icon = GFX_goal_generic_consumer_goods
+		x = 2
+		y = 4
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = OBA_introduce_healthcare_reforms  }
+		completion_reward = {
+			add_ideas = OBA_expanded_social_net
+		}
+	}
+
+	#Vaccinate the People
+	focus = {
+		id = OBA_vaccinate
+		icon = GFX_goal_vaccinate
+		x = 2
+		y = 5
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = OBA_expand_the_social_net  }
+		completion_reward = {
+			add_political_power = 150
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}	
+	}
+
+	#Visit Iraq
+	focus = {
+		id = OBA_visit_iraq
+		icon = GFX_goal_visit_iraq
+		x = 4
+		y = 4
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_WAR_SUPPORT
+		}
+		prerequisite = { focus = OBA_drone_strike_military_objectives  }
+		completion_reward = {
+			IRQ = {
+				add_opinion_modifier = { 
+				target = OBA 
+				modifier = obama_visit 
+				}
+			}
+		}
+	}
+
+	#Reintroduce Segregation
+	focus = {
+		id = OBA_reintroduce_segregation
+		icon = GFX_goal_reintroduce_segregation
+		x = 8
+		y = 3
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = OBA_stop_the_count  }
+		completion_reward = {
+			add_ideas = OBA_segregation
+		}
+	}
+
+	#STOP THE COUNT!
+	focus = {
+		id = OBA_stop_the_count
+		icon = GFX_goal_generic_forceful_treaty
+		x = 7
+		y = 2
+		cost = 1
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = OBA_consolidate_our_land  } prerequisite = { focus = OBA_election_time  }
+		mutually_exclusive = { focus = OBA_obama_2_electic_boogalo  }
+		completion_reward = {
+			set_politics = { ruling_party = fascism}
+			add_popularity = { ideology = fascism popularity = 0.50 }
+		}
+	}
+
+	#BUILD THAT WALL
+	focus = {
+		id = OBA_build_that_wall
+		icon = GFX_goal_build_wall
+		x = 8
+		y = 4
+		cost = 13
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = { focus = OBA_reintroduce_segregation  }
+		completion_reward = {
+			add_ideas = OBA_the_wall
+			hidden_effect = {
+				#Builds Forts along Border
+				103 ={
+					add_building_construction = {
+						type = bunker
+						level = 3
+						province = 3868
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 3
+						province = 6889
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 3
+						province = 11816
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 3
+						province = 3924
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 3
+						province = 3974
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 3
+						province = 984
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 3
+						province = 6611
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 3
+						province = 3601
+						instant_build = yes
+					}
+				}
+				109 = {
+					add_building_construction = {
+						type = bunker
+						level = 3
+						province = 3592
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 3
+						province = 3596
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 3
+						province = 624
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 3
+						province = 9595
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 3
+						province = 6647
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 3
+						province = 11577
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 3
+						province = 11580
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 3
+						province = 3627
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 3
+						province = 11594
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 3
+						province = 9611
+						instant_build = yes
+					}
+				}
+				102 = {
+					add_building_construction = {
+						type = bunker
+						level = 3
+						province = 6672
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 3
+						province = 665
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 3
+						province = 596
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 3
+						province = 9596
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 3
+						province = 3631
+						instant_build = yes
+					}
+				}
+				736 = {
+					add_building_construction = {
+						type = bunker
+						level = 3
+						province = 11595
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 3
+						province = 6626
+						instant_build = yes
+					}
+				}
+			}
+		}
+	
+	}
+
+	#Give the Other Side the Boot
+	focus = {
+		id = OBA_give_the_other_side_the_boot
+		icon = GFX_goal_boot_opposition
+		x = 6
+		y = 4
+		cost = 7
+		search_filters = {
+			FOCUS_FILTER_STABILITY
+		}
+		prerequisite = { focus = OBA_silence_the_opposition  }
+		completion_reward = {
+			if = {
+				limit = {
+					has_government = democratic
+				}
+				add_popularity = { ideology = democratic popularity = 0.25 }
+			}
+			if = {
+				limit = {
+					has_government = fascism
+				}
+				add_popularity = { ideology = fascism popularity = 0.25 }
+			}
+			if = {
+				limit = {
+					has_government = communism
+				}
+				add_popularity = { ideology = communism popularity = 0.25 }
+			}
+			if = {
+				limit = {
+					has_government = neutrality
+				}
+				add_popularity = { ideology = neutrality popularity = 0.25 }
+			}
+			add_manpower = -10000
+			add_political_power = 150
+			104 = {
+				add_manpower = 5000
+			}
+			155 = {
+				add_manpower = 2500
+			}
+			360 = {
+				add_manpower = 2500
+			}
+			remove_ideas = OBA_silenced_the_opposition
+		}
+	}
+
+	focus = {
+		id = OBA_restore_culture
+		x = 10
+		y = 3
+		cost = 7
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = OBA_stop_the_count  }
+		completion_reward = {
+			add_ideas = OBA_restored_culture
+		}
+	}
+	focus = {
+		id = OBA_honor_dixie
+		icon = GFX_focus_usa_honor_the_confederacy
+		x = 10
+		y = 4
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = OBA_restore_culture }
+		completion_reward = {
+			if = {
+				limit = {
+					USA = {
+						has_completed_focus = USA_america_first
+					}
+				}
+				USA = {
+					add_opinion_modifier = { 
+						target = OBA 
+						modifier = obama_visit 
+					}
+				}
+			}
+			if = {
+				limit = {
+					USA = {
+						has_completed_focus = USA_continue_the_new_deal
+					}
+				}
+				USA = {
+					add_opinion_modifier = { 
+						target = OBA 
+						modifier = fascism_leanings_bad
+					}
+				}
+			}
+			add_political_power = -5
+		}
+	}
+
+	focus = {
+		id = OBA_deport_natives
+		icon = GFX_goal_deport_natives
+		x = 8
+		y = 5
+		cost = 10
+		prerequisite = { focus = OBA_build_that_wall }
+		completion_reward = {
+			add_manpower = -20000
+			BOS = {
+				add_manpower = 10000
+			}
+			if = {
+				limit = {
+					country_exists = YUG
+				}
+				YUG = {
+				add_manpower = 10000	
+				}
+			}
+			if = {
+				limit = {
+					country_exists = SER
+				}
+				SER = {
+					add_manpower = 10000
+				}
+			}
+			add_stability = 0.075
+		}
+	}
+
+
+	focus = {
+		id = OBA_move_capital
+		icon = GFX_goal_move_capital
+		x = 10
+		y = 5
+		cost = 10
+		prerequisite = { focus = OBA_honor_dixie }
+		completion_reward = {
+			set_capital = {state = 361}
+			add_stability = 0.05
+		}
+	}
+
+	focus = {
+		id = OBA_expand_nation
+		icon = GFX_goal_expand_nation
+		x = 6
+		y = 6
+		cost = 10
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+		prerequisite = { focus = OBA_commision_more_drones focus = OBA_deport_natives}
+		prerequisite = { focus = OBA_vaccinate focus = OBA_move_capital}
+		completion_reward = {
+			add_manpower = 5000
+			add_political_power = 50
+		}
+	}
+
+	focus = {
+		id = OBA_attack_austria
+		icon = GFX_goal_attack_austria
+		x = 4
+		y = 7
+		cost = 10
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+		prerequisite = { focus = OBA_expand_nation }
+		completion_reward = {
+			add_manpower = 1000
+			create_wargoal = { type = annex_everything target = AUS }
+		}
+	}
+
+	focus = {
+		id = OBA_attack_hungary
+		icon = GFX_goal_attack_hungary
+		x = 6
+		y = 7
+		cost = 10
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+		prerequisite = { focus = OBA_expand_nation }
+		completion_reward = {
+			add_manpower = 1000
+			create_wargoal = { type = annex_everything target = HUN }
+		}
+	}
+
+	focus = {
+		id = OBA_attack_yugo
+		icon = GFX_goal_attack_yugo
+		x = 5
+		y = 8
+		cost = 10
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+		prerequisite = { focus = OBA_attack_austria focus = OBA_attack_hungary }
+		available = {
+			NOT = {
+				is_in_faction_with = YUG
+			}
+		}
+		completion_reward = {
+			add_manpower = 1000
+			create_wargoal = { type = annex_everything target = YUG }
+			add_state_claim = 45
+			add_state_claim = 764
+			add_state_claim = 104
+			add_state_claim = 804
+			add_state_claim = 107
+			add_state_claim= 105
+			hidden_effect = {
+				YUG = {
+					every_owned_state = {
+						set_state_flag = obama_balkan_territory
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = OBA_attack_albania
+		icon = GFX_focus_generic_adriatic_sea_focus
+		x = 5
+		y = 9
+		cost = 10
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+		prerequisite = { focus = OBA_attack_yugo }
+		completion_reward = {
+			create_warclaim = { type = annex_everything target = ALB }
+			add_state_claim = 44
+			add_state_claim = 805
+			hidden_effect = {
+				ALB = {
+					every_owned_state = {
+						set_state_flag = obama_balkan_territory
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = OBA_puppet_bulgaria
+		icon = GFX_focus_generic_attack_bulgaria
+		x = 3
+		y = 9
+		cost = 10
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+		prerequisite = { focus = OBA_attack_yugo }
+		completion_reward = {
+			add_manpower = 1000
+			create_wargoal = { type = puppet_wargoal_focus target = BUL }
+			hidden_effect = {
+				BUL = {
+					every_owned_state = {
+						set_state_flag = obama_balkan_territory
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = OBA_attack_rom
+		x = 7
+		y = 8
+		cost = 10
+		icon = GFX_focus_generic_attack_romania
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+		prerequisite = { focus = OBA_attack_hungary }
+		completion_reward = {
+			add_manpower = 1000
+			create_wargoal = {
+				type = take_state_focus
+				target = ROM
+				generator = { 82 83 84 76 }
+			}
+			add_state_claim = 82
+			hidden_effect = {
+				ROM = {
+					every_owned_state = {
+						set_state_flag = obama_balkan_territory
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = OBA_puppet_greece
+		icon = GFX_focus_generic_attack_greece
+		x = 5
+		y = 10
+		cost = 10
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+		prerequisite = { focus = OBA_attack_albania }
+		completion_reward = {
+			add_manpower = 1000
+			create_wargoal = { type = puppet_wargoal_focus target = GRE }
+			hidden_effect = {
+				GRE = {
+					every_owned_state = {
+						set_state_flag = obama_balkan_territory
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = OBA_liberate_italy
+		x = 7
+		y = 11
+		cost = 10
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+		available = {
+			OR = {
+				has_completed_focus = OBA_attack_austria
+				owns_state = 153
+			}
+		}
+		prerequisite = { focus = OBA_puppet_greece }
+		completion_reward = {
+			create_wargoal = { type = puppet_wargoal_focus target = ITA }
+			add_state_claim = 39
+		}
+	}
+
+	focus = {
+		id = OBA_decolonise_italy
+		x = 7
+		y = 12
+		cost = 5
+		available = {
+			ITA = {
+				is_puppet_of = OBA
+			}
+		}
+		prerequisite = { focus = OBA_liberate_italy }
+		completion_reward = {
+			hidden_effect = {
+				if = {
+					limit = {
+						ITA = {
+							owns_state = 39
+						}
+					}
+					OBA = {
+						set_state_owner = 39
+						set_state_controller = 39
+					}
+				}
+			}
+			if = {
+				limit = {
+					ITA = {
+						owns_state = 160
+						owns_state = 159
+						owns_state = 850
+					}
+				}
+				LOM = {
+					add_state_core = 160
+					add_state_core = 850
+					add_state_core = 159
+				}
+				ITA = {
+					release = LOM
+				}
+				OBA = {
+					puppet = LOM
+				}
+			}
+			if = {
+				limit = {
+					ITA = {
+						owns_state = 115
+						owns_state = 117
+						owns_state = 156
+						owns_state = 849
+					}
+				}
+				SIC = {
+					add_state_core = 115
+					add_state_core = 849
+					add_state_core = 117
+					add_state_core = 156
+				}
+				ITA = {
+					release = SIC
+				}
+				OBA = {
+					puppet = SIC
+				}
+			}
+			if = {
+				limit = {
+					ITA = {
+						owns_state = 158
+					}
+				}
+				SAO = {
+					add_state_core = 158
+				}
+				ITA = {
+					release = SAO
+				}
+				OBA = {
+					puppet = SAO
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = OBA_consolidate_balkan
+		icon = GFX_focus_BUL_free_balkan_states
+		x = 3
+		y = 11
+		cost = 10
+		prerequisite = { focus = OBA_puppet_bulgaria }
+		prerequisite = { focus = OBA_puppet_greece }
+		completion_reward = {
+			set_cosmetic_tag = balkan_obama
+			set_capital = {state = 109}
+			every_state = {
+				limit = {
+					has_state_flag = obama_balkan_territory
+				}
+				add_core_of = OBA
+			}
+			hidden_effect = {
+				every_country = {
+					set_country_flag = big_event_obama_balkan
+				}
+				all_owned_states = {
+					set_demilitarized_zone = no
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = OBA_turkey_issue
+		icon = GFX_focus_generic_attack_turkey
+		x = 3
+		y = 12
+		cost = 10
+		prerequisite = { focus = OBA_consolidate_balkan }
+		completion_reward = {
+			country_event = obama.420
+			mark_focus_tree_layout_dirty = yes
+		}
+	}
+
+	focus = {
+		id = OBA_expand_kras
+		icon = GFX_focus_generic_industry_2
+		x = 14
+		y = 0
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		available = {
+			owns_state = 103
+			owns_state = 109
+			owns_state = 163
+			owns_state = 736
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = OBA_create_ina
+		icon = GFX_goal_generic_oil_refinery
+		x = 13
+		y = 1
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = { focus = OBA_expand_kras}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = synthetic_refinery
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = OBA_expand_civilian_infrastructure
+		icon = GFX_focus_generic_industry_3
+		x = 15
+		y = 1
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = { focus = OBA_expand_kras}
+		mutually_exclusive = { focus = OBA_expand_viadukt }
+		completion_reward = {
+			103 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 4
+					instant_build = yes
+				}
+			}
+			109 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 4
+					instant_build = yes
+				}
+			}
+			163 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			build_railway = {
+				level = 2
+				path = { 3868 11816 3924 6957 6983 6619 3596 11581 }
+			}
+
+			build_railway = {
+				level = 2
+				path = { 11899 11572 9588 9595 }
+			}
+		}
+	}
+
+	focus = {
+		id = OBA_expand_viadukt
+		icon = GFX_focus_generic_industry_3
+		x = 17
+		y = 1
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = { focus = OBA_expand_kras }
+		mutually_exclusive = { focus = OBA_expand_civilian_infrastructure }
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = OBA_mixed_industry
+		icon = GFX_goal_generic_construction
+		x = 14
+		y = 2
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = { focus = OBA_expand_civilian_infrastructure}
+		prerequisite = { focus = OBA_create_ina}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = OBA_military_industry
+		icon = GFX_focus_generic_combined_arms
+		x = 16
+		y = 2
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = { focus = OBA_expand_civilian_infrastructure focus = OBA_expand_viadukt }
+		prerequisite = { focus = OBA_create_ina}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = OBA_industrial_research
+		icon = GFX_goal_generic_production
+		x = 12
+		y = 2
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = { focus = OBA_create_ina}
+		completion_reward = {
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 1.5
+				uses = 1
+				category = industry
+			}
+			add_tech_bonus = {
+				name = GER_coal_liquidization
+				bonus = 2.0
+				uses = 1
+				category = synth_resources
+			}
+			add_research_slot = 1
+		}
+	}
+
+	focus = {
+		id = OBA_construction_effort
+		icon = GFX_goal_generic_construction
+		x = 13
+		y = 3
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = { focus = OBA_industrial_research}
+		prerequisite = { focus = OBA_mixed_industry }
+		completion_reward = {
+			add_ideas = OBA_construction_effort
+		}
+	}
+
+	focus = {
+		id = OBA_military_effort
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 15
+		y = 3
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = { focus = OBA_military_industry }
+		prerequisite = { focus = OBA_mixed_industry }
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = OBA_naval_defense
+		icon = GFX_focus_generic_coastal_fort
+		x = 17
+		y = 4
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		available = {
+			has_full_control_of_state = 103
+			has_full_control_of_state = 163
+			has_full_control_of_state = 736
+		}
+		prerequisite = { focus = OBA_military_effort }
+		completion_reward = {
+			103 = {
+				add_building_construction = {
+            	    type = coastal_bunker
+            	    level = 2
+					province = 6889
+            	    instant_build = yes
+            	}
+				add_building_construction = {
+            	    type = coastal_bunker
+            	    level = 2
+					province = 3868
+            	    instant_build = yes
+            	}
+				add_building_construction = {
+            	    type = coastal_bunker
+            	    level = 2
+					province = 11816
+            	    instant_build = yes
+            	}
+				add_building_construction = {
+            	    type = coastal_bunker
+            	    level = 2
+					province = 3924
+            	    instant_build = yes
+            	}
+				add_building_construction = {
+            	    type = coastal_bunker
+            	    level = 2
+					province = 19901
+            	    instant_build = yes
+            	}
+				add_building_construction = {
+            	    type = coastal_bunker
+            	    level = 2
+					province = 591
+            	    instant_build = yes
+            	}
+				add_building_construction = {
+            	    type = coastal_bunker
+            	    level = 2
+					province = 11564
+            	    instant_build = yes
+            	}
+			}
+			163 = {
+				add_building_construction = {
+            	    type = coastal_bunker
+            	    level = 2
+					province = 3943
+            	    instant_build = yes
+            	}
+			}
+			736 = {
+				add_building_construction = {
+            	    type = coastal_bunker
+            	    level = 2
+					province = 11735
+            	    instant_build = yes
+            	}
+				add_building_construction = {
+            	    type = coastal_bunker
+            	    level = 2
+					province = 6626
+            	    instant_build = yes
+            	}
+			}
+		}
+	}
+
+	focus = {
+		id = OBA_synthetic_rubber
+		icon = GFX_focus_generic_rubber
+		x = 13
+		y = 4
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = { focus = OBA_construction_effort }
+		completion_reward = {
+			modify_building_resources = {
+        	   building = synthetic_refinery
+        	   resource = rubber
+        	   amount = 2
+        	}
+		}
+	}
+
+	focus = {
+		id = OBA_finish_military_effort
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 15
+		y = 4
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = { focus = OBA_military_effort }
+		completion_reward = {
+			add_ideas = OBA_sussy_economics
+
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = OBA_army_innovation
+		icon = GFX_goal_generic_axis_build_infantry
+		x = 21
+		y = 0
+		cost = 10
+		completion_reward = {
+			army_experience = 20
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 1.0
+				uses = 2
+				category = land_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = OBA_army_innovation_2
+		icon = GFX_goal_generic_army_artillery2
+		x = 19
+		y = 1
+		cost = 10
+		prerequisite = { focus = OBA_army_innovation }
+		completion_reward = {
+			army_experience = 10
+			add_tech_bonus = {
+				name = infantry_artillery_bonus
+				bonus = 1.0
+				uses = 2
+				category = infantry_weapons
+				category = artillery
+			}
+		}
+	}
+
+	focus = {
+		id = OBA_motorized_effort
+		icon = GFX_goal_generic_army_motorized
+		x = 23
+		y = 1
+		cost = 10
+		prerequisite = { focus = OBA_army_innovation }
+		completion_reward = {
+			add_tech_bonus = {
+				name = infantry_artillery_bonus
+				bonus = 2.0
+				uses = 1
+				category = motorized_equipment
+			}
+		}
+	}
+
+	focus = {
+		id = OBA_army_innovation_3
+		icon = GFX_goal_generic_small_arms
+		x = 19
+		y = 3
+		cost = 10
+		prerequisite = { focus = OBA_army_innovation_2 }
+		completion_reward = {
+			army_experience = 10
+			add_tech_bonus = {
+				name = infantry_artillery_bonus
+				bonus = 1.0
+				uses = 2
+				category = infantry_weapons
+				category = artillery
+			}
+		}
+	}
+
+	focus = {
+		id = OBA_motorized_effort_2
+		x = 23
+		y = 3
+		cost = 10
+		prerequisite = { focus = OBA_motorized_effort }
+		completion_reward = {
+			add_tech_bonus = {
+				name = infantry_artillery_bonus
+				bonus = 2.0
+				uses = 1
+				category = motorized_equipment
+			}
+		}
+	}
+
+	focus = {
+		id = OBA_armoured_effort
+		icon = GFX_goal_generic_army_tanks
+		x = 21
+		y = 2
+		cost = 10
+		prerequisite = { focus = OBA_motorized_effort }
+		prerequisite = { focus = OBA_army_innovation_2 }
+		completion_reward = {
+			add_tech_bonus = {
+				name = infantry_artillery_bonus
+				bonus = 3.0
+				uses = 2
+				category = armor
+			}
+		}
+	}
+
+	focus = {
+		id = OBA_expand_army
+		icon = GFX_goal_generic_axis_build_infantry
+		x = 21
+		y = 4
+		cost = 10
+		prerequisite = { focus = OBA_army_innovation_3 focus = OBA_motorized_effort_2}
+		completion_reward = {
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "division_template = \"National Guard\"	start_experience_factor = 0.3	start_equipment_factor = 1"
+					owner = OBA
+					allow_spawning_on_enemy_provs = no
+					count = 3
+				}
+			}
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 1000
+				producer = OBA
+			}
+		}
+	}
+
+
+	focus = {
+		id = OBA_bos_invest
+		x = 13
+		y = 6
+		cost = 0
+		available = {
+			always = no
+		}
+		completion_reward = {
+			custom_effect_tooltip = "YBosnia has proved its loyalty. It is time for us to repay that trustW"
+		}
+	}
+
+	focus = {
+		id = OBA_investment_I
+		x = 11
+		y = 7
+		cost = 10
+		prerequisite = {focus = OBA_bos_invest }
+		completion_reward = {
+			BOS = {
+				add_autonomy_ratio = {
+					value = -0.1
+				}
+				random_owned_controlled_state = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = OBA_investment_II
+		x = 11
+		y = 8
+		cost = 10
+		prerequisite = {focus = OBA_investment_I }
+		completion_reward = {
+			BOS = {
+				add_autonomy_ratio = {
+					value = -0.1
+				}
+				random_owned_controlled_state = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				}
+				random_owned_controlled_state = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = OBA_bos_infra_I
+		x = 13
+		y = 7
+		cost = 10
+		prerequisite = {focus = OBA_bos_invest }
+		completion_reward = {
+			BOS = {
+				add_autonomy_ratio = {
+					value = -0.05
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}
+			}
+			
+		}
+	}
+
+	focus = {
+		id = OBA_byz
+		x = 5
+		y = 13
+		available = {
+			NOT = {
+				has_government = communism
+			}
+			custom_trigger_tooltip = {
+				tooltip = form_byz_obama_greece
+				OR = {
+					AND = {
+						controls_state = 185
+						controls_state = 731
+						controls_state = 47
+						controls_state = 186
+						controls_state = 184
+						controls_state = 187
+						controls_state = 182
+					}
+					AND = {
+						GRE = {
+							is_puppet_of = OBA
+							controls_state = 185
+							controls_state = 731
+							controls_state = 47
+							controls_state = 186
+							controls_state = 184
+							controls_state = 187
+							controls_state = 182
+						}
+					}
+				}
+			}
+
+			custom_trigger_tooltip = {
+				tooltip = form_byz_obama_turkey
+				OR = {
+					AND = {
+						controls_state = 797
+						controls_state = 341
+						controls_state = 340
+						controls_state = 339
+						controls_state = 342
+						controls_state = 343
+						controls_state = 347
+						controls_state = 49
+						controls_state = 798
+						controls_state = 346
+						controls_state = 345
+						controls_state = 356
+						controls_state = 348
+						controls_state = 344
+						controls_state = 355
+						controls_state = 349
+						controls_state = 350
+						controls_state = 354
+						controls_state = 353
+						controls_state = 352
+						controls_state = 800
+					}
+					AND = {
+						TUR = {
+							is_puppet_of = OBA
+							controls_state = 797
+							controls_state = 341
+							controls_state = 340
+							controls_state = 339
+							controls_state = 342
+							controls_state = 343
+							controls_state = 347
+							controls_state = 49
+							controls_state = 798
+							controls_state = 346
+							controls_state = 345
+							controls_state = 356
+							controls_state = 348
+							controls_state = 344
+							controls_state = 355
+							controls_state = 349
+						}
+					}
+				}
+			}
+
+			custom_trigger_tooltip = {
+				tooltip = form_byz_obama_bulgaria
+				OR = {
+					AND = {
+						controls_state = 48
+						controls_state = 212
+						controls_state = 211
+						controls_state = 801
+					}
+					AND = {
+						BUL = {
+							is_puppet_of = OBA
+							controls_state = 48
+							controls_state = 212
+							controls_state = 211
+							controls_state = 801
+						}
+					}
+				}
+			}
+
+			custom_trigger_tooltip = {
+				tooltip = form_byz_obama_yugoslavia
+				OR = {
+					AND = {
+						controls_state = 45
+						controls_state = 107
+						controls_state = 764
+						controls_state = 108
+						controls_state = 105
+						controls_state = 106
+						controls_state = 802
+						controls_state = 803
+					}
+					AND = {
+						YUG = {
+							is_puppet_of = OBA
+							controls_state = 45
+							controls_state = 107
+							controls_state = 764
+							controls_state = 108
+							controls_state = 105
+							controls_state = 106
+							controls_state = 802
+							controls_state = 803
+						}
+					}
+				}
+			}
+		}
+		allow_branch = {
+			is_subject = no
+			has_completed_focus = OBA_turkey_issue
+			has_country_flag = oba_byzantium
+		}
+		completion_reward = {
+			custom_effect_tooltip = "Cores all YByzantineW states"
+			hidden_effect = {
+				if = {
+					limit = {
+						has_subject = GRE
+					}
+					annex_country = {
+						target = GRE
+						transfer_troops = yes
+					}
+				}
+				if = {
+					limit = {
+						has_subject = YUG
+					}
+					annex_country = {
+						target = YUG
+						transfer_troops = yes
+					}
+				}
+				if = {
+					limit = {
+						has_subject = TUR
+					}
+					annex_country = {
+						target = TUR
+						transfer_troops = yes
+					}
+				}
+				if = {
+					limit = {
+						has_subject = BUL
+					}
+					annex_country = {
+						target = GRE
+						transfer_troops = yes
+					}
+				}
+				add_state_core = 185
+				add_state_core = 731
+				add_state_core = 47
+				add_state_core = 186
+				add_state_core = 184
+				add_state_core = 187
+				add_state_core = 182
+				add_state_core = 185
+				add_state_core = 797
+				add_state_core = 341
+				add_state_core = 340
+				add_state_core = 339
+				add_state_core = 342
+				add_state_core = 343
+				add_state_core = 347
+				add_state_core = 49
+				add_state_core = 798
+				add_state_core = 346
+				add_state_core = 345
+				add_state_core = 356
+				add_state_core = 348
+				add_state_core = 344
+				add_state_core = 355
+				add_state_core = 349
+				add_state_core = 48
+				add_state_core = 212
+				add_state_core = 211
+				add_state_core = 801
+				add_state_core = 45
+				add_state_core = 107
+				add_state_core = 764
+				add_state_core = 108
+				add_state_core = 105
+				add_state_core = 106
+				add_state_core = 802
+				add_state_core = 803
+			}
+		}
+	}
+}

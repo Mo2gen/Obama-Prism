@@ -1,0 +1,122 @@
+spriteTypes = {
+
+	spriteType = {
+		name = "GFX_obama_scripted_gui_window_background"
+		textureFile = "/gfx/interface/scripted_gui_graphics/scripted_gui_background.dds"
+	}
+
+	spriteType = {
+		name = "GFX_close_button"
+		textureFile = "/gfx/interface/scripted_gui_graphics/close_button.dds"
+	}
+
+	spriteType = {
+		name = "GFX_istra_green"
+		textureFile = "/gfx/interface/scripted_gui_graphics/GFX_istra_green.dds"
+	}
+
+	spriteType = {
+		name = "GFX_istra_red"
+		textureFile = "/gfx/interface/scripted_gui_graphics/GFX_istra_red.dds"
+	}
+
+	spriteType = {
+		name = "GFX_greece_green"
+		textureFile = "/gfx/interface/scripted_gui_graphics/GFX_greece_green.dds"
+	}
+
+	spriteType = {
+		name = "GFX_greece_red"
+		textureFile = "/gfx/interface/scripted_gui_graphics/GFX_greece_red.dds"
+	}
+
+	spriteType = {
+		name = "GFX_romania_green"
+		textureFile = "/gfx/interface/scripted_gui_graphics/GFX_romania_green.dds"
+	}
+
+	spriteType = {
+		name = "GFX_romania_red"
+		textureFile = "/gfx/interface/scripted_gui_graphics/GFX_romania_red.dds"
+	}
+
+	spriteType = {
+		name = "GFX_slovenia_green"
+		textureFile = "/gfx/interface/scripted_gui_graphics/GFX_slovenia_green.dds"
+	}
+
+	spriteType = {
+		name = "GFX_slovenia_red"
+		textureFile = "/gfx/interface/scripted_gui_graphics/GFX_slovenia_red.dds"
+	}
+
+	spriteType = {
+		name = "GFX_croatia_green"
+		textureFile = "/gfx/interface/scripted_gui_graphics/GFX_croatia_green.dds"
+	}
+
+	spriteType = {
+		name = "GFX_croatia_red"
+		textureFile = "/gfx/interface/scripted_gui_graphics/GFX_croatia_red.dds"
+	}
+
+	spriteType = {
+		name = "GFX_serbia_green"
+		textureFile = "/gfx/interface/scripted_gui_graphics/GFX_serbia_green.dds"
+	}
+
+	spriteType = {
+		name = "GFX_serbia_red"
+		textureFile = "/gfx/interface/scripted_gui_graphics/GFX_serbia_red.dds"
+	}
+
+	spriteType = {
+		name = "GFX_macedonia_green"
+		textureFile = "/gfx/interface/scripted_gui_graphics/GFX_macedonia_green.dds"
+	}
+
+	spriteType = {
+		name = "GFX_macedonia_red"
+		textureFile = "/gfx/interface/scripted_gui_graphics/GFX_macedonia_red.dds"
+	}
+
+	spriteType = {
+		name = "GFX_bulgaria_green"
+		textureFile = "/gfx/interface/scripted_gui_graphics/GFX_bulgaria_green.dds"
+	}
+
+	spriteType = {
+		name = "GFX_bulgaria_red"
+		textureFile = "/gfx/interface/scripted_gui_graphics/GFX_bulgaria_red.dds"
+	}
+
+	spriteType = {
+		name = "GFX_albania_green"
+		textureFile = "/gfx/interface/scripted_gui_graphics/GFX_albania_green.dds"
+	}
+
+	spriteType = {
+		name = "GFX_albania_red"
+		textureFile = "/gfx/interface/scripted_gui_graphics/GFX_albania_red.dds"
+	}
+
+	spriteType = {
+		name = "GFX_montenegro_green"
+		textureFile = "/gfx/interface/scripted_gui_graphics/GFX_montenegro_green.dds"
+	}
+
+	spriteType = {
+		name = "GFX_montenegro_red"
+		textureFile = "/gfx/interface/scripted_gui_graphics/GFX_montenegro_red.dds"
+	}
+
+	spriteType = {
+		name = "GFX_bosnia_green"
+		textureFile = "/gfx/interface/scripted_gui_graphics/GFX_bosnia_green.dds"
+	}
+
+	spriteType = {
+		name = "GFX_bosnia_red"
+		textureFile = "/gfx/interface/scripted_gui_graphics/GFX_bosnia_red.dds"
+	}
+}

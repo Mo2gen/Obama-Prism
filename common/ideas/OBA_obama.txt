@@ -1,0 +1,113 @@
+ideas = {
+	political_advisor = {
+		michelle = {
+			allowed = {
+				original_tag = OBA
+			}
+			available = {
+				OBA = {
+					has_government = democratic
+				}
+			}
+			traits = { propaganda_expert prince_of_terror anti_fascist_agent }
+			picture = "JlVksgZz-34860"
+		}
+	}
+	aircraft_manufacturer = {
+		lockheed_martin = {
+			allowed = {
+				original_tag = OBA
+			}
+			traits = { aircraft_manufacturer light_aircraft_manufacturer_2 heavy_aircraft_manufacturer victory_through_airpower}
+			picture = "lockheed_martin"
+		}
+	}
+	country = {
+
+		OBA_obamacare = {
+			picture = obamacare
+			modifier = {
+				weekly_manpower = 1000
+				MONTHLY_POPULATION = +0.10
+			}
+		}
+
+		OBA_expanded_social_net = {
+			picture = OBA_expanded_social_net-1
+			modifier = {
+				stability_factor = 0.05
+				political_power_gain = 1
+			}
+		}
+
+		OBA_the_wall = {
+			picture = the_wall
+			modifier = {
+				production_speed_bunker_factor = 0.33
+				production_speed_coastal_bunker_factor = 0.33
+				production_speed_anti_air_building_factor = 0.33
+			}
+		}
+
+		OBA_restored_culture = {
+			picture = OBA_restored_culture-1
+			modifier = {
+				stability_factor = 0.05
+				MONTHLY_POPULATION = +0.01
+			}
+		}
+
+		OBA_silenced_the_opposition = {
+			picture = silenced_opposition
+			modifier = {
+				political_power_gain = -0.5
+				stability_factor = -0.10
+			}
+		}
+
+		OBA_segregation = {
+			modifier = {
+				stability_factor = -0.05
+				industrial_capacity_factory = 0.05
+				consumer_goods_factor = -0.05
+			}
+		}
+
+		OBA_construction_effort = {
+			modifier = {
+				production_speed_buildings_factor = 0.15
+			}
+		}
+	}
+	
+	economy = {
+		law = yes
+		OBA_sussy_economics = {
+
+			picture = SPR_collectivized_society		
+			
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+		
+			modifier = {
+				consumer_goods_factor = 0.05
+				conscription = -0.01
+				production_speed_arms_factory_factor = 0.5
+				conversion_cost_civ_to_mil_factor= -0.5
+				conversion_cost_mil_to_civ_factor = -0.1
+				industrial_capacity_factory = 0.2
+				industrial_capacity_dockyard = 0.2
+			}
+			
+			allowed_to_remove = {
+				always = no
+			}
+			
+			cancel_if_invalid = no
+		}
+	}
+
+
+}

@@ -1,0 +1,58 @@
+characters={
+	BOS_alija = {
+		name = "Alij-A"
+		portraits={
+			civilian={
+				large="gfx/leaders/BOS/Portrait_Bosnian_Alija.dds"
+			}
+		}
+		country_leader={
+			ideology=socialism
+			expire="1965.1.1.1"
+			traits = {dictator}
+			id=-1
+		}
+	}
+	BOS_Crazy = {
+		name = "Crazy Ustaša"
+		portraits={
+			civilian={
+				large="gfx/leaders/BOS/Portrait_Bosnian_Omco.dds"
+			}
+		}
+		country_leader={
+			ideology=nazism
+			expire="1965.1.1.1"
+			traits = {dictator}
+			id=-1
+		}
+	}
+	BOS_Tito = {
+		name = "Joseph Bruh Tito"
+		portraits={
+			civilian={
+				large="gfx/leaders/BOS/Potrait_Tito_Drip.dds"
+			}
+		}
+		country_leader={
+			ideology=marxism
+			expire="1965.1.1.1"
+			traits = {}
+			id=-1
+		}
+	}
+	BOS_Kotromanic = {
+		name = "Kotromanić Monarchy"
+		portraits={
+			civilian={
+				large="gfx/leaders/BOS/kotromanic.dds"
+			}
+		}
+		country_leader={
+			ideology=oligarchism
+			expire="1965.1.1.1"
+			traits = {}
+			id=-1
+		}
+	}
+}

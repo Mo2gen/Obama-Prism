@@ -1,0 +1,166 @@
+ideas = {
+	country = {
+		BOS_bosanska_artiljerija = {
+			picture = bosanska_artilerija
+			modifier = {
+				army_artillery_attack_factor = 1
+				army_artillery_defence_factor = 0.5
+			}
+		}
+
+		BOS_resisted_influence = {
+			modifier = {
+				autonomy_gain = 1
+				war_support_factor = 0.1
+			}
+		}
+
+		BOS_obama_jihad = {
+			targeted_modifier = {
+				tag = OBA 
+				attack_bonus_against = 0.2
+				defense_bonus_against = 0.2
+				breakthrough_bonus_against = 0.2
+			}
+		}
+
+		BOS_obama_influence = {
+			modifier = {
+				research_speed_factor = 0.05
+				license_production_speed = 0.1
+			}
+		}
+
+		BOS_increased_autonomy = {
+			modifier = {
+				autonomy_gain = 0.5
+				stability_factor = 0.1
+			}
+		}
+
+		BOS_obamese_investors = {
+			modifier = {
+				consumer_goods_factor = -0.05
+				industrial_capacity_factory = 0.05
+			}
+		}
+
+		BOS_front_nacionalne_odbrane = {
+			modifier = {
+				army_core_defence_factor = 0.1
+			}
+		}
+
+		BOS_independence_recovery = {
+			modifier = {
+				stability_factor = -0.05
+				war_support_factor = -0.05
+				consumer_goods_factor = -0.02
+			}
+		}
+
+		BOS_political_turmoil = {
+			modifier = {
+				stability_factor = -0.1
+				drift_defence_factor = -0.5
+			}
+		}
+
+		BOS_partisan_revolution_1 = {
+			modifier = {
+				stability_factor = -0.1
+				foreign_subversive_activites = -0.1
+				communism_drift = 0.3
+			}
+		}
+
+		BOS_partisan_revolution_2 = {
+			modifier = {
+				foreign_subversive_activites = -0.1
+				communism_drift = 0.3
+			}
+		}
+
+		BOS_titoism = {
+			modifier = {
+				stability_factor = 0.05
+				industrial_capacity_factory = 0.05
+				subjects_autonomy_gain = -2
+			}
+		}
+
+		BOS_brotherhood = {
+			modifier = {
+				stability_factor = 0.1
+				war_support_factor = 0.05
+				weekly_manpower = 500
+			}
+		}
+
+		BOS_communes = {
+			modifier = {
+				consumer_goods_factor = -0.05
+				industrial_capacity_factory = 0.10
+				production_factory_max_efficiency_factor = 0.1
+			}
+		}
+
+		BOS_sda_dominance = {
+			modifier = {
+				consumer_goods_factor = 0.02
+				war_support_factor = 0.15
+				democratic_drift = 0.1
+			}
+		}
+
+		BOS_bosnian_kingdom = {
+			modifier = {
+				political_power_gain = 0.15
+				drift_defence_factor = 0.1
+				stability_factor = 0.05
+			}
+		}
+
+		BOS_royalist_army = {
+		    modifier = {
+		        army_attack_factor = 0.01
+		        army_defence_factor = 0.01
+		        justify_war_goal_time = -0.2
+		    }
+		}
+
+		BOS_palace = {
+		    modifier = {
+		        political_power_gain = 0.10
+		        stability_factor = 0.05
+		    }
+		}
+	}
+
+	economy = {
+		law = yes
+		BOS_burek_economics = {
+
+			picture = SPR_collectivized_society		
+			
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+		
+			modifier = {
+				consumer_goods_factor = 0.1
+				conscription = 0.05
+				production_speed_arms_factory_factor = 0.5
+				industrial_capacity_factory = 0.2
+				industrial_capacity_dockyard = 0.2
+			}
+			
+			allowed_to_remove = {
+				always = no
+			}
+			
+			cancel_if_invalid = no
+		}
+	}
+}

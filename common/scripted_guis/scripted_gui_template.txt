@@ -1,0 +1,249 @@
+scripted_gui = {
+  new_scripted_gui = {
+    window_name = "obama_gui_window"
+    context_type = player_context
+
+    visible = {
+		  has_country_flag = obama_window
+    }
+
+    effects = {
+      close_button_click = {
+        clr_country_flag = obama_window
+      }
+      istra_red_click = {
+        set_country_flag = clicked_istra
+      }
+      istra_green_click = {
+        clr_country_flag = clicked_istra
+      }
+      bosnia_red_click = {
+        set_country_flag = clicked_bosnia
+      }
+      bosnia_green_click = {
+        clr_country_flag = clicked_bosnia
+      }
+      croatia_red_click = {
+        set_country_flag = clicked_croatia
+      }
+      croatia_green_click = {
+        clr_country_flag = clicked_croatia
+      }
+      serbia_red_click = {
+        set_country_flag = clicked_serbia
+      }
+      serbia_green_click = {
+        clr_country_flag = clicked_serbia
+      }
+      montenegro_red_click = {
+        set_country_flag = clicked_montenegro
+      }
+      montenegro_green_click = {
+        clr_country_flag = clicked_montenegro
+      }
+      macedonia_red_click = {
+        set_country_flag = clicked_macedonia
+      }
+      macedonia_green_click = {
+        clr_country_flag = clicked_macedonia
+      }
+      slovenia_red_click = {
+        set_country_flag = clicked_slovenia
+      }
+      slovenia_green_click = {
+        clr_country_flag = clicked_slovenia
+      }
+      albania_red_click = {
+        set_country_flag = clicked_albania
+      }
+      albania_green_click = {
+        clr_country_flag = clicked_albania
+      }
+      greece_red_click = {
+        set_country_flag = clicked_greece
+      }
+      greece_green_click = {
+        clr_country_flag = clicked_greece
+      }
+      bulgaria_red_click = {
+        set_country_flag = clicked_bulgaria
+      }
+      bulgaria_green_click = {
+        clr_country_flag = clicked_bulgaria
+      }
+      romania_red_click = {
+        set_country_flag = clicked_romania
+      }
+      romania_green_click = {
+        clr_country_flag = clicked_romania
+      }
+    }
+
+    triggers = {
+      istra_green_visible = {
+        owns_state = 736
+        owns_state = 852
+      }
+      bosnia_green_visible = {
+        OR ={
+          AND = {
+            owns_state = 104
+            owns_state = 804
+          }
+          any_subject_country = {
+            owns_state = 104
+            owns_state = 804
+          }
+        }
+      }
+      croatia_green_visible = {
+        OR ={
+          AND = {
+            owns_state = 109
+            owns_state = 103
+            owns_state = 163
+          }
+          any_subject_country = {
+            owns_state = 109
+            owns_state = 103
+            owns_state = 163
+          }
+        }
+      }
+      serbia_green_visible = {
+        OR ={
+          AND = {
+            owns_state = 45
+            owns_state = 764
+            owns_state = 107
+            owns_state = 108
+            owns_state = 802
+            owns_state = 803
+          }
+          any_subject_country = {
+            owns_state = 45
+            owns_state = 764
+            owns_state = 107
+            owns_state = 108
+            owns_state = 802
+            owns_state = 803
+          }
+        }
+      }
+      montenegro_green_visible = {
+        OR ={
+          AND = {
+            owns_state = 105
+          }
+          any_subject_country = {
+            owns_state = 105
+          }
+        }
+      }
+      macedonia_green_visible = {
+        OR ={
+          AND = {
+            owns_state = 106
+          }
+          any_subject_country = {
+            owns_state = 106
+          }
+        }
+      }
+      slovenia_green_visible = {
+        OR ={
+          AND = {
+            owns_state = 102
+            owns_state = 853
+          }
+          any_subject_country = {
+            owns_state = 102
+            owns_state = 853
+          }
+        }
+      }
+      albania_green_visible = {
+        OR ={
+          AND = {
+            owns_state = 44
+            owns_state = 805
+          }
+          any_subject_country = {
+            owns_state = 44
+            owns_state = 805
+          }
+        }
+      }
+      greece_green_visible = {
+        OR ={
+          AND = {
+            owns_state = 184
+            owns_state = 731
+            owns_state = 185
+            owns_state = 47
+            owns_state = 186
+          }
+          any_subject_country = {
+            owns_state = 184
+            owns_state = 731
+            owns_state = 185
+            owns_state = 47
+            owns_state = 186
+          }
+        }
+      }
+      bulgaria_green_visible = {
+        OR ={
+          AND = {
+            owns_state = 212
+            owns_state = 48
+            owns_state = 801
+            owns_state = 211
+          }
+          any_subject_country = {
+            owns_state = 212
+            owns_state = 48
+            owns_state = 801
+            owns_state = 211
+          }
+        }
+      }
+      romania_green_visible = {
+        OR = {
+          ROM = {
+            all_core_state = {
+              is_owned_by = OBA
+            }
+          }
+          any_subject_country = {
+            all_owned_state = {
+              is_core_of = ROM
+            }
+          }
+        }
+      }
+    }
+
+    dynamic_lists = {
+	}
+
+    properties = {
+    }
+
+    ai_enabled = {
+		always = no
+    }
+
+    ai_test_interval = 250  # The higher, the longer it takes the ai to do actions
+	  ai_test_variance = 0.5
+
+    ai_check = {
+    }
+
+    ai_check_scope = {
+    }
+
+    ai_weights = {
+    }
+  }
+}

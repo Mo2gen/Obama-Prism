@@ -1,0 +1,10 @@
+obama_decisions = {
+	show_obama_gui = {
+		allowed = {
+			tag = OBA
+		}
+		complete_effect = {
+			set_country_flag = obama_window
+		}
+	}
+}

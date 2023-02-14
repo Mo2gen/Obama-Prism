@@ -1,0 +1,133 @@
+guiTypes = { ######## THE DESCRIPTION AND THE TITLE ARE IN THE LOCALISATION FILE ##########
+############### THIS FILE DEFINES THE SHAPE, FORM, AND TEXT OF THE GUI FOR THE SUPEREVENT
+	
+	containerWindowType = {
+		name = "TNO_SG_big_event_latin_wars_custom_window"
+		size = { width = 220 height = 128 }
+		position = { x=0 y=-210 }
+		Orientation = center
+		Origo = center
+		clipping = no
+		show_sound = latin_spring_bigevent ### SOUND EFFECT GOES HERE, MAKE SURE YOU'RE USING SOUND #EFFECT AND NOT SOUND!!!!!
+
+		instantTextBoxType = {
+			name = "Title"
+			position = { x = 0 y = 20 }
+			font = "aldrich_18_outline"
+			borderSize = {x = 0 y = 0}
+			text = "BE_LATIN_WARS_T" ###### HERE GOES THE TITLE ########
+			maxWidth = 220
+			maxHeight = 24
+			format = centre
+		}
+
+		iconType = {
+			name ="image"
+			spriteType = "GFX_superevent_custom_latin_wars"
+			position = { x= -286 y = -18 }
+			Orientation = center
+			alwaystransparent = yes
+		}
+
+	}
+
+	containerWindowType = {
+		name = "TNO_SG_big_event_frame_latin_wars_custom"
+		size = { width = 588 height = 465 }
+		position = { x=0 y=0 }
+		Orientation = center
+		Origo = center
+		clipping = no
+
+		buttonType = {
+			name = "Option"
+			text = "BE_LATIN_WARS_A"  ############## OPTION
+			shortcut = "ESCAPE"
+			position = { x = -110 y = 183 }
+			quadTextureSprite ="GFX_button_221x34"
+			buttonFont = "Bomb_24"
+			Orientation = center
+		}
+
+		instantTextBoxType = {
+			name = "text"
+			position = {  x= 120 y = -195 }
+			font = "Bomb_24"
+			text = "BE_LATIN_WARS_D" ######## HERE GOES THE DESCRIPTION ###########
+			maxWidth = 455
+			maxHeight = 173
+			fixedsize = yes
+			format = right
+			Orientation = lower_left
+		}
+	}
+
+
+
+
+
+
+
+
+	#OBAMA EVENT!
+	containerWindowType = {
+		name = "TNO_SG_obama_balkan_custom_window"
+		size = { width = 220 height = 128 }
+		position = { x=0 y=-210 }
+		Orientation = center
+		Origo = center
+		clipping = no
+		show_sound = obama_balkan ### SOUND EFFECT GOES HERE, MAKE SURE YOU'RE USING SOUND #EFFECT AND NOT SOUND!!!!!
+
+		instantTextBoxType = {
+			name = "Title"
+			position = { x = 0 y = 20 }
+			font = "aldrich_18_outline"
+			borderSize = {x = 0 y = 0}
+			text = "BE_OBAMA_BALKAN_T" ###### HERE GOES THE TITLE ########
+			maxWidth = 220
+			maxHeight = 24
+			format = centre
+		}
+
+		iconType = {
+			name ="image"
+			spriteType = "GFX_superevent_custom_obama_balkan"
+			position = { x= -286 y = -18 }
+			Orientation = center
+			alwaystransparent = yes
+		}
+
+	}
+
+	containerWindowType = {
+		name = "TNO_SG_big_event_frame_obama_balkan_custom"
+		size = { width = 588 height = 465 }
+		position = { x=0 y=0 }
+		Orientation = center
+		Origo = center
+		clipping = no
+
+		buttonType = {
+			name = "Option"
+			text = "BE_OBAMA_BALKAN_A"  ############## OPTION
+			shortcut = "ESCAPE"
+			position = { x = -110 y = 183 }
+			quadTextureSprite ="GFX_button_221x34"
+			buttonFont = "Bomb_24"
+			Orientation = center
+		}
+
+		instantTextBoxType = {
+			name = "text"
+			position = {  x= 120 y = -195 }
+			font = "Bomb_24"
+			text = "BE_OBAMA_BALKAN_D" ######## HERE GOES THE DESCRIPTION ###########
+			maxWidth = 455
+			maxHeight = 173
+			fixedsize = yes
+			format = right
+			Orientation = lower_left
+		}
+	}
+}

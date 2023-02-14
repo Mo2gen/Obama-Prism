@@ -1,0 +1,30 @@
+ideas = {
+    country = {
+        discord_mods = {
+            modifier = {
+                political_power_gain = 0.1
+                stability_factor = 0.05
+            }
+        }
+
+        trading_company = {
+            modifier = {
+                consumer_goods_factor = -0.05
+                war_support_factor = 0.1
+            }
+        }
+
+        potaoe_plantations_1 = {
+            modifier = {
+                MONTHLY_POPULATION = +0.01
+            }
+        }
+
+        potaoe_plantations_2 = {
+            modifier = {
+                MONTHLY_POPULATION = +0.10
+                consumer_goods_factor = -0.01
+            }
+        }
+    }
+}

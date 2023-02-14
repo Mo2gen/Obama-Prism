@@ -1,0 +1,192 @@
+guiTypes = {
+
+	containerWindowType = {
+		name = "obama_gui_window"
+		position = { x = 0 y = 0}	
+		size = { width = 800 height= 650 }
+		orientation = center
+		origo = center
+		fade_time = 100
+		moveable = yes
+		fade_type = linear
+		click_to_front = yes
+		clipping = no
+		
+		background = {
+			name = "Background"		
+			quadTextureSprite ="GFX_obama_scripted_gui_window_background"
+		}
+
+		buttonType ={
+			name ="close_button"
+			spriteType = "GFX_close_button"
+			position = { x= 740 y = 20 }
+			Orientation = "UPPER_LEFT"
+		}
+
+		iconType = {
+			name ="istra_red"
+			spriteType = "GFX_istra_red"
+			position = { x = 120 y = 200 }
+			Orientation = "UPPER_LEFT"
+		}
+
+		iconType = {
+			name ="istra_green"
+			spriteType = "GFX_istra_green"
+			position = { x = 120 y = 200 }
+			Orientation = "UPPER_LEFT"
+		}
+
+		iconType = {
+			name ="serbia_red"
+			spriteType = "GFX_serbia_red"
+			position = { x = 190 y = 203 }
+			Orientation = "UPPER_LEFT"
+		}
+
+		iconType = {
+			name ="serbia_green"
+			spriteType = "GFX_serbia_green"
+			position = { x = 190 y = 203 }
+			Orientation = "UPPER_LEFT"
+		}
+
+		iconType = {
+			name ="croatia_red"
+			spriteType = "GFX_croatia_red"
+			position = { x = 134 y = 203 }
+			Orientation = "UPPER_LEFT"
+		}
+
+		iconType = {
+			name ="croatia_green"
+			spriteType = "GFX_croatia_green"
+			position = { x = 134 y = 203 }
+			Orientation = "UPPER_LEFT"
+		}
+
+		iconType = {
+			name ="bosnia_red"
+			spriteType = "GFX_bosnia_red"
+			position = { x = 150 y = 220 }
+			Orientation = "UPPER_LEFT"
+		}
+
+		iconType = {
+			name ="bosnia_green"
+			spriteType = "GFX_bosnia_green"
+			position = { x = 150 y = 220 }
+			Orientation = "UPPER_LEFT"
+		}
+		iconType = {
+			name ="montenegro_red"
+			spriteType = "GFX_montenegro_red"
+			position = { x = 190 y = 250 }
+			Orientation = "UPPER_LEFT"
+		}
+
+		iconType = {
+			name ="montenegro_green"
+			spriteType = "GFX_montenegro_green"
+			position = { x = 190 y = 250 }
+			Orientation = "UPPER_LEFT"
+		}
+
+		iconType = {
+			name ="slovenia_red"
+			spriteType = "GFX_slovenia_red"
+			position = { x = 126 y = 195 }
+			Orientation = "UPPER_LEFT"
+		}
+
+		iconType = {
+			name ="slovenia_green"
+			spriteType = "GFX_slovenia_green"
+			position = { x = 126 y = 195 }
+			Orientation = "UPPER_LEFT"
+		}
+
+		iconType = {
+			name ="greece_red"
+			spriteType = "GFX_greece_red"
+			position = { x = 208 y = 280 }
+			Orientation = "UPPER_LEFT"
+		}
+		
+		iconType = {
+			name ="greece_green"
+			spriteType = "GFX_greece_green"
+			position = { x = 208 y = 280 }
+			Orientation = "UPPER_LEFT"
+		}
+
+		iconType = {
+			name ="bulgaria_red"
+			spriteType = "GFX_bulgaria_red"
+			position = { x = 254 y = 240 }
+			Orientation = "UPPER_LEFT"
+		}
+		
+		iconType = {
+			name ="bulgaria_green"
+			spriteType = "GFX_bulgaria_green"
+			position = { x = 254 y = 240 }
+			Orientation = "UPPER_LEFT"
+		}
+
+		iconType = {
+			name ="macedonia_red"
+			spriteType = "GFX_macedonia_red"
+			position = { x = 219 y = 275 }
+			Orientation = "UPPER_LEFT"
+		}
+
+		iconType = {
+			name ="macedonia_green"
+			spriteType = "GFX_macedonia_green"
+			position = { x = 219 y = 275 }
+			Orientation = "UPPER_LEFT"
+		}
+
+		iconType = {
+			name ="albania_red"
+			spriteType = "GFX_albania_red"
+			position = { x = 204 y = 269 }
+			Orientation = "UPPER_LEFT"
+		}
+
+		iconType = {
+			name ="albania_green"
+			spriteType = "GFX_albania_green"
+			position = { x = 204 y = 269 }
+			Orientation = "UPPER_LEFT"
+		}
+
+		iconType = {
+			name ="romania_red"
+			spriteType = "GFX_romania_red"
+			position = { x = 222 y = 162 }
+			Orientation = "UPPER_LEFT"
+		}
+		
+		iconType = {
+			name ="romania_green"
+			spriteType = "GFX_romania_green"
+			position = { x = 222 y = 162 }
+			Orientation = "UPPER_LEFT"
+		}
+		
+	
+		instantTextboxType = {
+			name = "political_title"
+			position = { x = 75 y = 75 }
+			font = "hoi_36header"
+			borderSize = {x = 0 y = 0}
+			text = "The R\"Balkan\"! State in [GetMonth] [GetYear]"
+			maxWidth = 700
+			maxHeight = 20
+			fixedsize = yes
+		}
+	}
+}

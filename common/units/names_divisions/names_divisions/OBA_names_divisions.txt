@@ -1,0 +1,42 @@
+OBA_Inf_01 = {
+    name = "The glorious Obama"
+    for_countries = { OBA }
+    can_use = { always = yes }
+    division_types = { "infantry" "camelry" "bicycle_battalion" "rocket_artillery_brigade" }
+
+    fallback_name = "%dth Obamese-Division"
+
+    ordered = {
+        1 = { "%dst Obamese-Division" }
+        2 = { "%dnd Obamese-Division" }
+        3 = { "%drd Obamese-Division" }
+        4 = { "%dth Obamese-Division" }
+        5 = { "%dth Obamese-Division" }
+        6 = { "%dth Obamese-Division" }
+        8 = { "%dth Obamese-Division" }
+        9 = { "%dth Obamese-Division" }
+        10 = { "%dth Obamese-Division" }
+        11 = { "%dth Obamese-Division" }
+        12 = { "%dth Obamese-Division" }
+        13 = { "%dth Obamese-Division" }
+        14 = { "%dth Obamese-Division" }
+        15 = { "%dth Obamese-Division" }
+        16 = { "%dth Obamese-Division" }
+        17 = { "%dth Obamese-Division" }
+        18 = { "%dth Obamese-Division" }
+        19 = { "%dth Obamese-Division" }
+        20 = { "%dth Obamese-Division" }
+        21 = { "%dst Obamese-Division" }
+        22 = { "%dnd Obamese-Division" }
+        23 = { "%dth Obamese-Division" }
+        24 = { "%dth Obamese-Division" }
+        25 = { "%dth Obamese-Division" }
+        26 = { "%dth Obamese-Division" }
+        27 = { "%dth Obamese-Division" }
+        28 = { "%dth Obamese-Division" }
+        29 = { "%dth Obamese-Division" }
+        30 = { "%dth Obamese-Division" }
+        31 = { "%dst Obamese-Division" }
+        32 = { "%dnd Obamese-Division" }
+    }
+}

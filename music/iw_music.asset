@@ -1,0 +1,49 @@
+music = {
+	name = "prikaze"
+	file = "prikaze.ogg"
+}
+
+music = {
+	name = "tranzicija"
+	file = "tranzicija.ogg"
+}
+music = {
+	name = "burek"
+	file = "burek.ogg"
+}
+music = {
+	name = "bomba"
+	file = "bomba.ogg"
+}
+music = {
+	name = "hej_slaveni"
+	file = "hej_slaveni.ogg"
+}
+music = {
+	name = "prvi_maj"
+	file = "prvi_maj.ogg"
+}
+music = {
+	name = "mater_vam_jebem"
+	file = "mater_vam_jebem.ogg"
+}
+music = {
+	name = "jbumrdzn"
+	file = "jbumrdzn.ogg"
+}
+music = {
+	name = "heute_fahr_ma_polizei"
+	file = "heute_fahr_ma_polizei.ogg"
+}
+music = {
+	name = "der_albtraum_jeder_schwiegermutter"
+	file = "der_albtraum_jeder_schwiegermutter.ogg"
+}
+music = {
+	name = "gsm"
+	file = "gsm.ogg"
+}
+music = {
+	name = "King_of_Simmering"
+	file = "King_of_Simmering.ogg"
+}

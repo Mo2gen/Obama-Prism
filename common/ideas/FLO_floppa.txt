@@ -1,0 +1,11 @@
+ideas = {
+    country = {
+        FLO_merch = {
+            picture = floppa_merch
+            modifier = {
+                consumer_goods_factor = -0.05
+                min_export = 0.02
+            }
+        }
+    }
+}

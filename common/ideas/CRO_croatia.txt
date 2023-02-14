@@ -1,0 +1,16 @@
+ideas = {
+	country = {
+		CRO_uprising = {
+			picture = FRA_scw_intervention_republicans_focus
+			targeted_modifier = {
+				tag = OBA 
+				attack_bonus_against = 0.1
+				defense_bonus_against = 0.1
+				breakthrough_bonus_against = 0.05
+			}
+			cancel = {
+				has_war = no
+			}
+		}
+	}
+}

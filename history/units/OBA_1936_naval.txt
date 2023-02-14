@@ -1,0 +1,15 @@
+units = {
+    fleet = {
+        name = "Obamese Navy"
+        naval_base = 6626
+        task_force = {
+        ship = { name = "OS New York" definition = heavy_cruiser  equipment = { heavy_cruiser_1 = { amount = 1 owner = OBA version_name = "Drone Class" } } }	
+        ship = { name = "OS Brooklyn" definition = heavy_cruiser  equipment = { heavy_cruiser_1 = { amount = 1 owner = OBA version_name = "Drone Class" } } }
+        ship = { name = "Bainbridge" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = OBA } } }
+        ship = { name = "Barry" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = OBA } } }
+        ship = { name = "Chauncey" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = OBA } } }
+        ship = { name = "Dale" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = OBA } } }
+        ship = { name = "Lawrence" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = OBA } } }
+        }
+    }
+}

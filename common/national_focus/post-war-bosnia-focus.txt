@@ -1,0 +1,481 @@
+focus_tree = {
+    id = post_war_bosnia-focus
+    continuous_focus_position = { x = 0 y = 2000 }
+
+    focus = {
+        id = recover_from_war
+        x = 7
+		y = 0
+        cost = 10
+        completion_reward = {
+            add_ideas = volunteer_only
+            add_ideas = BOS_independence_recovery
+        }
+    }
+
+    focus = {
+        id = determine_future
+        x = 7
+		y = 1
+        cost = 5
+        prerequisite = { focus = recover_from_war}
+        completion_reward = {
+            add_ideas = BOS_political_turmoil
+        }
+    }
+
+    focus = {
+        id = partisan_revolution
+        x = 1
+        y = 2
+        cost = 10
+        prerequisite = { focus = determine_future}
+        mutually_exclusive = { focus = kotromanić_restoration focus = keep_sda focus = ustaše_coup }
+        completion_reward = {
+            swap_ideas = {
+	            add_idea = BOS_partisan_revolution_1
+	            remove_idea = BOS_political_turmoil
+            }
+        }
+    }
+
+    focus = {
+        id = spread_titoism
+        x = 1
+        y = 3
+        cost = 10
+        prerequisite = { focus = partisan_revolution}
+        completion_reward = {
+            add_ideas = BOS_titoism
+            swap_ideas = {
+	            add_idea = BOS_partisan_revolution_2
+	            remove_idea = BOS_partisan_revolution_1
+            }
+        }
+    }
+
+    focus = {
+        id = seize_power
+        x = 1
+        y = 4
+        cost = 10
+        prerequisite = { focus = spread_titoism}
+        completion_reward = {
+            set_politics = { ruling_party = communism}
+            set_party_name = {
+                    ideology = communism
+                    long_name = "League of Communists of Yugoslavia"
+                    name = "SKJ"
+                }
+            hidden_effect = {
+                add_country_leader_trait = independence_war_veteran
+                set_cosmetic_tag = GREATER_BOSNIA_communism
+            }
+        }
+    }
+
+    focus = {
+        id = embrace_nationalism
+        x = 2
+        y = 5
+        cost = 10
+        prerequisite = { focus = seize_power}
+        mutually_exclusive = { focus = brotherhood_and_unity }
+    }
+
+    focus = {
+        id = collectivise_economy
+        x = 2
+        y = 6
+        cost = 10
+        prerequisite = { focus = embrace_nationalism }
+        completion_reward = {
+            random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+            random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+            random_owned_controlled_state = {
+                add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}
+            }
+        }
+    }
+
+    focus = {
+        id = brotherhood_and_unity
+        x = 0
+        y = 5
+        cost = 10
+        prerequisite = { focus = seize_power}
+        mutually_exclusive = { focus = embrace_nationalism }
+        completion_reward = {
+            add_ideas = BOS_brotherhood
+        }
+    }
+
+    focus = {
+        id = create_communes
+        x = 0
+        y = 6
+        cost = 10
+        prerequisite = { focus = brotherhood_and_unity }
+        completion_reward = {
+            add_ideas = BOS_communes
+        }
+    }
+
+    focus = {
+        id = declare_SFR
+        x = 1
+        y = 7
+        cost = 10
+        available = {
+            country_exists = YUG
+        }
+        bypass = {
+            NOT = {
+                country_exists = YUG
+            }
+        }
+        prerequisite = { focus = create_communes focus = collectivise_economy }
+        completion_reward = {
+            every_state = { 
+				limit = {is_core_of = YUG}
+				add_core_of = BOS
+			}
+            if = {
+                limit = {
+                    YUG = {
+                        is_subject = no
+                    }
+                }
+                declare_war_on = { type = annex_everything target = YUG }
+            }
+            else_if = {
+                limit = {
+                    YUG = {
+                    is_subject_of = BOS
+                    }
+                }
+                add_manpower = 10000
+                add_stability = 0.1
+            } 
+            hidden_effect = {
+                set_cosmetic_tag = YUG_communism
+            }
+        }
+    }
+
+    focus = {
+        id = integrate_albanija
+        x = 1
+        y = 8
+        cost = 10
+        available = {
+            country_exists = ALB
+        }
+        bypass = {
+            NOT = {
+                country_exists = ALB
+            }
+        }
+        prerequisite = { focus = declare_SFR }
+        completion_reward = {
+            declare_war_on = { type = annex_everything target = ALB }
+            every_state = { 
+				limit = {is_core_of = ALB}
+				add_core_of = BOS
+			}
+        }
+    }
+
+    focus = {
+        id = finish_jugoslavija
+        x = 1
+        y = 8
+        cost = 10
+        available = {
+            country_exists = BUL
+        }
+        bypass = {
+            NOT = {
+                country_exists = BUL
+            }
+        }
+        prerequisite = { focus = integrate_albanija }
+        completion_reward = {
+            declare_war_on = { type = annex_everything target = BUL }
+            every_state = { 
+				limit = {is_core_of = BUL}
+				add_core_of = BOS
+			}
+        }
+    }
+
+    focus = {
+        id = expand_jugoslavija
+        x = 1
+        y = 9
+        cost = 10
+        available = {
+            country_exists = GRE
+        }
+        bypass = {
+            NOT = {
+                country_exists = GRE
+            }
+        }
+        prerequisite = { focus = finish_jugoslavija }
+        completion_reward = {
+            declare_war_on = { type = annex_everything target = GRE }
+            every_state = { 
+				limit = {is_core_of = GRE}
+				add_claim_by = BOS
+			}
+        }
+    }
+
+    focus = {
+        id = keep_sda
+        x = 5
+        y = 2
+        cost = 10
+        prerequisite = { focus = determine_future }
+        mutually_exclusive = { focus = partisan_revolution focus = kotromanić_restoration focus = ustaše_coup }
+        completion_reward = {
+            add_ideas = BOS_sda_dominance
+        }
+    }
+
+    focus = {
+        id = allow_elections_bosnia
+        x = 5
+        y = 3
+        cost = 10
+        prerequisite = { focus = keep_sda }
+        completion_reward = {
+            hidden_effect = {
+                if = {
+					limit = {
+                        NOT = {
+                            has_government = democratic
+                        }
+					}
+					set_cosmetic_tag = GREATER_BOSNIA_democratic
+				}
+            }
+            set_politics = {
+	            ruling_party = democratic
+                elections_allowed = yes
+                last_election = "1935.12.17"
+                election_frequency = 24
+            }
+        }
+    }
+
+    focus = {
+        id = frame_opposition
+        x = 5
+        y = 4
+        cost = 10
+        prerequisite = { focus = allow_elections_bosnia }
+        completion_reward = {
+            remove_ideas = BOS_political_turmoil
+            set_popularities = {
+	            democratic = 100
+	            neutrality = 0
+	            fascism = 0
+	            communism = 0
+            }
+        }
+    }
+
+    focus = {
+        id = make_srbija_gay
+        x = 5
+        y = 5
+        cost = 10
+        prerequisite = { focus = frame_opposition }
+        completion_reward = {
+            if = {
+                limit = {
+                    country_exists = YUG
+                }
+                create_wargoal = { type = annex_everything target = YUG }
+                every_state = { 
+				    limit = {is_core_of = YUG}
+				    add_core_of = BOS
+			    }
+            }
+            else_if = {
+                limit = {
+                    country_exists = SER
+                }
+                create_wargoal = { type = annex_everything target = SER }
+                every_state = { 
+				    limit = {is_core_of = SER}
+				    add_core_of = BOS
+			    }
+            }
+            add_war_support = 0.25
+        }
+    }
+
+    focus= {
+        id = passive_uçk
+        x = 5
+        y = 6
+        cost = 10
+        prerequisite = { focus = make_srbija_gay }
+        completion_reward = {
+            create_wargoal = { type = annex_everything target = ALB }
+            add_state_core = 44
+            add_state_core = 805
+            if = {
+                limit = {
+                    NOT = {
+                        owns_state = 802
+                    }
+                }
+                add_state_core = 802
+            }
+        }
+    }
+
+    focus = {
+        id = yugoslav_sphere
+        x = 5
+        y = 7
+        cost = 10
+        prerequisite = { focus = passive_uçk }
+        completion_reward = {
+           create_wargoal = { type = puppet_wargoal_focus target = BUL }
+        }
+    }
+
+    focus = {
+        id = control_balkans
+        x = 5
+        y = 8
+        cost = 10
+        prerequisite = { focus = yugoslav_sphere }
+        completion_reward = {
+            create_wargoal = { type = puppet_wargoal_focus target = GRE }
+            create_wargoal = { type = puppet_wargoal_focus target = HUN }
+            create_wargoal = { type = puppet_wargoal_focus target = ROM }
+        }
+    }
+
+    focus = {
+        id = kotromanić_restoration
+        x = 9
+        y = 2
+        cost = 10
+        prerequisite = { focus = determine_future }
+        mutually_exclusive = { focus = partisan_revolution focus = keep_sda focus = ustaše_coup }
+        available_if_capitulated = yes
+	    completion_reward = {
+		    add_ideas = BOS_bosnian_kingdom
+            set_politics = {
+    	        ruling_party = neutrality
+            }
+            add_popularity = {
+                ideology = neutrality
+                popularity = 0.5
+            }
+	    }
+    }
+
+    focus = {
+        id = royalist_army
+        x = 9
+        y = 3
+        available = {
+            has_government = neutrality
+        }
+        available_if_capitulated = no
+        bypass = {
+            NOT = {
+                has_government = neutrality
+            }
+        }
+        prerequisite = { focus = kotromanić_restoration }
+        completion_reward = {
+            add_ideas = BOS_royalist_army
+        }
+    }
+
+    focus = {
+	    id = claim_bosnia
+        x = 7
+        y = 4
+        available_if_capitulated = no
+	    prerequisite = { focus = royalist_army }
+	    completion_reward = {
+            add_state_core = 103
+            add_state_core = 105
+            add_state_core = 163
+            add_state_core = 108
+            add_state_core = 107
+	    }
+    }
+
+    focus = {
+        id = kill_skanderbeg
+        x = 9
+        y = 4
+        available = {
+            country_exists = ALB
+        }
+        available_if_capitulated = no
+        prerequisite = { focus = royalist_army }
+        completion_reward = {
+            create_wargoal = { type = annex_everything target = ALB }
+        }
+    }
+
+    focus = {
+        id = sarajevo_palace
+        x = 9
+        y = 5
+        available = {
+            owns_state = 104
+        }
+        available_if_capitulated = no
+        prerequisite = { focus = kill_skanderbeg }
+        completion_reward = {
+            104 = {
+                add_building_construction = {
+                type = industrial_complex
+                level = 2
+                instant_build = yes
+                }
+            }
+            add_ideas = BOS_palace
+        }
+    }
+
+    focus = {
+        id = ustaše_coup
+        x = 13
+        y = 2
+        cost = 10
+        prerequisite = { focus = determine_future}
+        mutually_exclusive = { focus = partisan_revolution focus = kotromanić_restoration focus = keep_sda   }
+    }
+}

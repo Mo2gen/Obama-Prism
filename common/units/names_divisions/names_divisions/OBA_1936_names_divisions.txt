@@ -1,0 +1,8 @@
+OBA_DIV_0_0 = {	name = The glorious Obama
+	for_countries = { OBA }
+	can_use = { always = yes }
+	division_types = { 
+		"camelry" "bicycle_battalion" "rocket_artillery_brigade" }
+	}
+	fallback_name = "%d. The glorious Obama"
+}
