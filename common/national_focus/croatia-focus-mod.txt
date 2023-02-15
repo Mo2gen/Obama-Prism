@@ -209,4 +209,26 @@ focus_tree = {
 			add_ideas = partial_economic_mobilisation
 		}
 	}
+
+	focus = {
+		id = CRO_victory
+		relative_position_id = CRO_the_uprising
+		y = 3
+		x = 0
+		cost = 0
+		prerequisite = { focus = CRO_last_push}
+		available = {
+			NOT = {
+				has_war_with = OBA
+			}
+		}
+
+		completion_reward = {
+			custom_effect_tooltip = "[THIS.GetNameWithFlag] has won its struggle! We can finally achieve our dreams!"
+			add_political_power = 150
+			hidden_effect = {
+				load_focus_tree = post-war-croatia-focus-mod
+			}
+		}
+	}
 }
