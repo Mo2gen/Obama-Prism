@@ -235,8 +235,8 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			custom_effect_tooltip = "[THIS.GetNameWithFlag] has won its struggle! We can finally achieve our dreams!"
-			add_political_power = 150
+			custom_effect_tooltip = " We can finally achieve our dreams!"
+			add_political_power = [has_war_support*100]
 			hidden_effect = {
 				load_focus_tree = post-war-croatia-focus-mod
 			}
