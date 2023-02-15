@@ -1,6 +1,6 @@
 # Obama Prism
 ## What the fuck is this?
-Ever wondered what kind of mod would be produced when someone stays up until 5am with a friend and fills a random hoi4 state map? Yeah this kinda shit happens. Expect lots of weird shit, shitty code and experimental features as you join me in my modding journy
+Have you ever wondered what kind of mod would be produced when someone stays up until 5am with a friend and fills out a random hoi4 state map? Yeah, this kind of shit happens. Expect lots of weird shit, shitty code and experimental features as you join me in my modding journey
 <br>
 ## Things i like to complain about
 ```
