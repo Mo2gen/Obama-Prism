@@ -31,6 +31,7 @@ focus_tree = {
 		cost = 1
 		icon = GFX_focus_generic_little_entente
 		prerequisite = { focus = CRO_the_uprising }
+		available_if_capitulated = no
 
 		completion_reward = {
 			random_owned_controlled_state = {
@@ -52,6 +53,8 @@ focus_tree = {
 		cost = 1
 		icon = GFX_goal_generic_small_arms
 		prerequisite = { focus = CRO_the_uprising }
+		available_if_capitulated = no
+
 		completion_reward = {
 			random_list = {
 				30 ={
@@ -88,6 +91,7 @@ focus_tree = {
 		icon = GFX_focus_generic_provoke_border_clashes
 		prerequisite = { focus = CRO_emergency_conscription }
 		prerequisite = { focus = CRO_gun_caches }
+		available_if_capitulated = no
 
 		completion_reward = {
 			add_ideas = CRO_uprising
@@ -100,6 +104,7 @@ focus_tree = {
 		y = 1
 		cost = 10
 		icon = GFX_goal_in_dev
+		available_if_capitulated = no
 
 		completion_reward = {
 			random_owned_controlled_state = {
@@ -121,6 +126,7 @@ focus_tree = {
 		cost = 10
 		icon = GFX_goal_in_dev
 		prerequisite = { focus = CRO_industry_1 }
+		available_if_capitulated = no
 
 		completion_reward = {
 			
@@ -140,6 +146,7 @@ focus_tree = {
 				synthetic_refinery = 0
 			}
 		}
+		available_if_capitulated = no
 
 		completion_reward = {
 			random_owned_controlled_state = {
@@ -160,6 +167,7 @@ focus_tree = {
 		cost = 10
 		icon = GFX_goal_in_dev
 		prerequisite = { focus = CRO_industry_1 }
+		available_if_capitulated = no
 
 		completion_reward = {
 			random_owned_controlled_state = {
@@ -181,6 +189,7 @@ focus_tree = {
 		cost = 10
 		icon = GFX_goal_in_dev
 		prerequisite = { focus = CRO_industry_2 }
+		available_if_capitulated = no
 
 		completion_reward = {
 			random_owned_controlled_state = {
@@ -216,7 +225,9 @@ focus_tree = {
 		y = 3
 		x = 0
 		cost = 0
+		icon =  GFX_goal_in_dev
 		prerequisite = { focus = CRO_last_push}
+		available_if_capitulated = no
 		available = {
 			NOT = {
 				has_war_with = OBA
