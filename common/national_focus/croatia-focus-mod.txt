@@ -60,7 +60,14 @@ focus_tree = {
 				30 ={
 					add_equipment_to_stockpile = {
 						type = infantry_equipment_0
-						amount = 2000
+						amount = 5000
+						producer = CRO
+					}
+				}
+				30 ={
+					add_equipment_to_stockpile = {
+						type = infantry_equipment_0
+						amount = 3000
 						producer = CRO
 					}
 				}
@@ -68,13 +75,6 @@ focus_tree = {
 					add_equipment_to_stockpile = {
 						type = infantry_equipment_0
 						amount = 1000
-						producer = CRO
-					}
-				}
-				30 ={
-					add_equipment_to_stockpile = {
-						type = infantry_equipment_0
-						amount = 500
 						producer = CRO
 					}
 				}
@@ -149,6 +149,7 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
+			add_extra_state_shared_building_slots = 2
 			random_owned_controlled_state = {
 				add_building_construction = {
 					type = synthetic_refinery
@@ -236,7 +237,7 @@ focus_tree = {
 
 		completion_reward = {
 			custom_effect_tooltip = " We can finally achieve our dreams!"
-			add_political_power = [has_war_support*100]
+			add_political_power =  100 + (has_war_support * 100)
 			hidden_effect = {
 				load_focus_tree = post-war-croatia-focus-mod
 			}
